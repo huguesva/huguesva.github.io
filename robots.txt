@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://huguesva.github.io/sitemap.xml
