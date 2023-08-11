@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>a post with math | Hugues  Van Assel</title>
+    <title>Computing the graph Laplacian pseudo-determinant of the one neighbor graph | Hugues  Van Assel</title>
     <meta name="author" content="Hugues  Van Assel">
     <meta name="description" content="an example of a blog post with some math">
 
@@ -85,9 +85,6 @@
                 <a class="nav-link" href="/talks/">talks</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="/publications/">publications</a>
-              </li>
-              <li class="nav-item ">
                 <a class="nav-link" href="/teaching/">teaching</a>
               </li>
 
@@ -120,7 +117,7 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">a post with math</h1>
+    <h1 class="post-title">Computing the graph Laplacian pseudo-determinant of the one neighbor graph</h1>
     <p class="post-meta">October 20, 2015</p>
     <p class="post-tags">
       <a href="/blog/2015"> <i class="fas fa-calendar fa-sm"></i> 2015 </a>
@@ -141,7 +138,34 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      <p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/" rel="external nofollow noopener" target="_blank">MathJax 3</a> engine. You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>. If you leave it inside a paragraph, it will produce an inline expression, just like \(E = mc^2\).</p>
+      <p>It holds <code class="language-plaintext highlighter-rouge">$$ |\overline{\mathbf{L}}| = \sum_{\mathcal{T} \in \text{ST}(\overline{\W})} \prod_{ij} \mathcal{T}_{ij} $$</code>.</p>
+
+<p>where <code class="language-plaintext highlighter-rouge">$$\text{ST}(\overline{\W})$$</code> is the set of spanning trees of <code class="language-plaintext highlighter-rouge">$$\overline{\W}$$</code>.</p>
+
+<p>Relying on the above matrix tree theorem for weighted graphs, one can easily compute the determinant of graph Laplacians on $\mathcal{S}_W$ as follows.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>For $\W \in \mathcal{S}_W$, $</td>
+      <td>\overline{\bm{L}}</td>
+      <td>= \prod_{r=1}^R</td>
+      <td>\gamma(r)</td>
+      <td>$ where $\gamma(r)$ is the set of edges in the unique cycle associated to the $r^{th}$ connected component of $\W$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>One can notice that a connected component of $\overline{\W}$ is a spanning tree with one cycle (CRSF). In the below derivation, equation \ref{cycle_trick} is derived by noticing that to obtain a spanning tree from a CRSF, one only has to remove an edge from the cycle.
+\begin{align<em>}
+    |\overline{\bm{L}}| &amp;= \sum_{\mathcal{T} \in \text{ST}(\Tilde{\W})} \prod_{ij} \mathcal{T}_{ij} <br>
+    &amp;= \prod_{ij} \overline{W}_{ij} \prod_{r=1}^R \sum_{i’ j’ \in \gamma(r)} \overline{W}_{i’j’}^{-1} \label{cycle_trick}<br>
+    &amp;= \prod_{r=1}^R |\gamma(r)| \quad \text{for unitary graph } \W \in \mathcal{S}_{\scaleto{W}{4pt}} :.
+\end{align</em>}</p>
+
+<p>$\mathcal{C}(\W)$ can be computed with linear complexity using \cref{algo:compute_C(w)}.</p>
+
+<p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/" rel="external nofollow noopener" target="_blank">MathJax 3</a> engine. You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>. If you leave it inside a paragraph, it will produce an inline expression, just like \(E = mc^2\).</p>
 
 <p>To use display mode, again surround your expression with <code class="language-plaintext highlighter-rouge">$$</code> and place it as a separate paragraph. Here is an example:</p>
 
