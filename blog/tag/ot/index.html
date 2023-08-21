@@ -10,9 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Computing the graph Laplacian pseudo-determinant of the one neighbor graph | Hugues  Van Assel</title>
+    <title>OT | Hugues  Van Assel</title>
     <meta name="author" content="Hugues  Van Assel">
-    <meta name="description" content="an example of a blog post with some math">
+    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
 
 
     <!-- Bootstrap & MDB -->
@@ -37,7 +38,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://huguesva.github.io/blog/2015/math/">
+    <link rel="canonical" href="https://huguesva.github.io/blog/tag/ot/">
 
     <!-- Dark Mode -->
     
@@ -74,11 +75,13 @@
               <li class="nav-item ">
                 <a class="nav-link" href="/">about</a>
               </li>
-              
+              <!--  -->
               <!-- Blog -->
-              <li class="nav-item active">
-                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
-              </li>
+              <!-- <li class="nav-item active"> -->
+                <!-- <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span>-->
+                <!-- </a> -->
+              <!-- </li> -->
+              <!-- -->
 
               <!-- Other pages -->
               <li class="nav-item ">
@@ -112,79 +115,28 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- _layouts/post.html -->
-
-<div class="post">
+        <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Computing the graph Laplacian pseudo-determinant of the one neighbor graph</h1>
-    <p class="post-meta">October 20, 2015</p>
-    <p class="post-tags">
-      <a href="/blog/2015"> <i class="fas fa-calendar fa-sm"></i> 2015 </a>
-        ·  
-        <a href="/blog/tag/formatting">
-          <i class="fas fa-hashtag fa-sm"></i> formatting</a>  
-          <a href="/blog/tag/math">
-          <i class="fas fa-hashtag fa-sm"></i> math</a>  
-          
-        ·  
-        <a href="/blog/category/sample-posts">
-          <i class="fas fa-tag fa-sm"></i> sample-posts</a>  
-          
-
-    </p>
+    <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> OT </h1>
+    <p class="post-description"> an archive of posts with this tag </p>
   </header>
 
-  <article class="post-content">
-    
-    <div id="markdown-content">
-      <p>It holds <code class="language-plaintext highlighter-rouge">$$ |\overline{\mathbf{L}}| = \sum_{\mathcal{T} \in \text{ST}(\overline{\W})} \prod_{ij} \mathcal{T}_{ij} $$</code>.</p>
-
-<p>where <code class="language-plaintext highlighter-rouge">$$\text{ST}(\overline{\W})$$</code> is the set of spanning trees of <code class="language-plaintext highlighter-rouge">$$\overline{\W}$$</code>.</p>
-
-<p>Relying on the above matrix tree theorem for weighted graphs, one can easily compute the determinant of graph Laplacians on $\mathcal{S}_W$ as follows.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>For $\W \in \mathcal{S}_W$, $</td>
-      <td>\overline{\bm{L}}</td>
-      <td>= \prod_{r=1}^R</td>
-      <td>\gamma(r)</td>
-      <td>$ where $\gamma(r)$ is the set of edges in the unique cycle associated to the $r^{th}$ connected component of $\W$.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>One can notice that a connected component of $\overline{\W}$ is a spanning tree with one cycle (CRSF). In the below derivation, equation \ref{cycle_trick} is derived by noticing that to obtain a spanning tree from a CRSF, one only has to remove an edge from the cycle.
-\begin{align<em>}
-    |\overline{\bm{L}}| &amp;= \sum_{\mathcal{T} \in \text{ST}(\Tilde{\W})} \prod_{ij} \mathcal{T}_{ij} <br>
-    &amp;= \prod_{ij} \overline{W}_{ij} \prod_{r=1}^R \sum_{i’ j’ \in \gamma(r)} \overline{W}_{i’j’}^{-1} \label{cycle_trick}<br>
-    &amp;= \prod_{r=1}^R |\gamma(r)| \quad \text{for unitary graph } \W \in \mathcal{S}_{\scaleto{W}{4pt}} :.
-\end{align</em>}</p>
-
-<p>$\mathcal{C}(\W)$ can be computed with linear complexity using \cref{algo:compute_C(w)}.</p>
-
-<p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/" rel="external nofollow noopener" target="_blank">MathJax 3</a> engine. You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>. If you leave it inside a paragraph, it will produce an inline expression, just like \(E = mc^2\).</p>
-
-<p>To use display mode, again surround your expression with <code class="language-plaintext highlighter-rouge">$$</code> and place it as a separate paragraph. Here is an example:</p>
-
-\[\sum_{k=1}^\infty |\langle x, e_k \rangle|^2 \leq \|x\|^2\]
-
-<p>You can also use <code class="language-plaintext highlighter-rouge">\begin{equation}...\end{equation}</code> instead of <code class="language-plaintext highlighter-rouge">$$</code> for display mode math.
-MathJax will automatically number equations:</p>
-
-<p>\begin{equation}
-\label{eq:cauchy-schwarz}
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-\end{equation}</p>
-
-<p>and by adding <code class="language-plaintext highlighter-rouge">\label{...}</code> inside the equation environment, we can now refer to the equation using <code class="language-plaintext highlighter-rouge">\eqref</code>.</p>
-
-<p>Note that MathJax 3 is <a href="https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html" rel="external nofollow noopener" target="_blank">a major re-write of MathJax</a> that brought a significant improvement to the loading and rendering speed, which is now <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php" rel="external nofollow noopener" target="_blank">on par with KaTeX</a>.</p>
-
+  <article>
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        
+        <tr>
+          <th scope="row">Aug 15, 2023</th>
+          <td>
+              <a class="post-link" href="/blog/2023/isoOT/">Optimal Transport with Point-wise Constraints</a>
+          </td>
+        </tr>
+      
+      </table>
     </div>
   </article>
+
 </div>
 
       
