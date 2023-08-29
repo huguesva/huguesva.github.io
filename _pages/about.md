@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a PhD student in the department of Mathematics ([UMPA](http://www.umpa.ens-lyon.fr/){:target="\_blank"}) of [Ecole Normale Supérieure de Lyon](http://www.ens-lyon.fr/){:target="\_blank"}. 
+I am a PhD student in the department of Mathematics ([UMPA](http://www.umpa.ens-lyon.fr/){:target="\_blank"}) of [Ecole Normale Supérieure de Lyon](http://www.ens-lyon.fr/){:target="\_blank"}, in the team of [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html){:target="\_blank"}.
 
 My research interests are in machine learning. For my PhD, I focus mainly on building new [dimensionality reduction](https://mathurinm.github.io/assets/2023_olissipo/olissipo_slides.pdf){:target="\_blank"} methods using tools from optimal transport, graphs and probabilistic modelling. 
 [Here](https://scholar.google.com/citations?user=9Lf9wq8AAAAJ&hl=fr){:target="\_blank"} is an updated list of my publications. 
