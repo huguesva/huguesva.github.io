@@ -1,15 +1,24 @@
 ---
 ---
 
-@article{vanassel2022probabilistic,
-      title={A Probabilistic Graph Coupling View of Dimension Reduction},
-      author={Hugues Van Assel and Thibault Espinasse and Julien Chiquet and Franck Picard},
-      year={2022},
-      journal={Advances in Neural Information Processing Systems},
+@article{otari,
+      title={Optimal Transport with Adaptive Regularisation}, 
+      author={Hugues Van Assel and Titouan Vayer and Rémi Flamary and Nicolas Courty},
+      year={2023},
+      journal={Preprint},
       selected={true},
-      abstract={Most popular dimension reduction (DR) methods like t-SNE and UMAP are based on minimizing a cost between input and latent pairwise similarities. Though widely used, these approaches lack clear probabilistic foundations to enable a full understanding of their properties and limitations. To that extent, we introduce a unifying statistical framework based on the coupling of hidden graphs using cross entropy. These graphs induce a Markov random field dependency structure among the observations in both input and latent spaces. We show that existing pairwise similarity DR methods can be retrieved from our framework with particular choices of priors for the graphs. Moreover this reveals that these methods suffer from a statistical deficiency that explains poor performances in conserving coarse-grain dependencies. Our model is leveraged and extended to address this issue while new links are drawn with Laplacian eigenmaps and PCA.},
-      abbr = {NeurIPS},
-      pdf = {NeurIPS-2022-a-probabilistic-graph-coupling-view-of-dimension-reduction-Paper-Conference.pdf}
+      abbr = {Preprint},
+      pdf = {otari_workshop_paper.pdf}
+}
+
+@article{gwdr,
+      title={Interpolating between Clustering and Dimensionality Reduction with Gromov-Wasserstein}, 
+      author={Hugues Van Assel and Cédric Vincent-Cuaz and Titouan Vayer and Rémi Flamary and Nicolas Courty},
+      year={2023},
+      journal={Preprint},
+      selected={true},
+      abbr = {Preprint},
+      pdf = {GWDR.pdf}
 }
 
 @article{vanassel2023snekhorn,
@@ -18,24 +27,17 @@
       year={2023},
       journal={Advances in Neural Information Processing Systems},
       selected={true},
-      abstract={Many approaches in machine learning rely on a weighted graph to encode the
-      similarities between samples in a dataset. Entropic affinities (EAs), which are
-      notably used in the popular Dimensionality Reduction (DR) algorithm t-SNE, are
-      particular instances of such graphs. To ensure robustness to heterogeneous sampling
-      densities, EAs assign a kernel bandwidth parameter to every sample in such a way
-      that the entropy of each row in the affinity matrix is kept constant at a specific
-      value, whose exponential is known as perplexity. EAs are inherently asymmetric
-      and row-wise stochastic, but they are used in DR approaches after undergoing
-      heuristic symmetrization methods that violate both the row-wise constant entropy
-      and stochasticity properties. In this work, we uncover a novel characterization of
-      EA as an optimal transport problem, allowing a natural symmetrization that can be
-      computed efficiently using dual ascent. The corresponding novel affinity matrix
-      derives advantages from symmetric doubly stochastic normalization in terms of
-      clustering performance, while also effectively controlling the entropy of each row
-      thus making it particularly robust to varying noise levels. Following, we present a
-      new DR algorithm, SNEkhorn, that leverages this new affinity matrix. We show
-      its clear superiority to state-of-the-art approaches with several indicators on both
-      synthetic and real-world datasets.},
       abbr = {NeurIPS},
       pdf = {snekhorn.pdf}
+}
+
+@article{vanassel2022probabilistic,
+      title={A Probabilistic Graph Coupling View of Dimension Reduction},
+      author={Hugues Van Assel and Thibault Espinasse and Julien Chiquet and Franck Picard},
+      year={2022},
+      journal={Advances in Neural Information Processing Systems},
+      selected={true},
+      abbr = {NeurIPS},
+      pdf = {NeurIPS-2022-a-probabilistic-graph-coupling-view-of-dimension-reduction-Paper-Conference.pdf},
+      poster = {Poster_Neurips2022.pdf}
 }
