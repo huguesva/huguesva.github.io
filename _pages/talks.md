@@ -11,7 +11,7 @@ nav: true
 
 
 - **Graph Coupling for Dimensionality Reduction**. [Slides]({{ site.url }}/assets/pdf/mlsp_GC.pdf). [Poster]({{ site.url }}/assets/pdf/Poster_Neurips2022.pdf). [Video](https://slideslive.com/38991393/a-probabilistic-graph-coupling-view-of-dimension-reduction?ref=search-presentations-van+assel){:target="\_blank"}.
-    - 28/11/2022: NeurIPS 2022 conference (New Orleans).
+    - 28/11/2022: NeurIPS 2022 conference (New Orleans, USA).
     - 10/10/2022: Workshop « Statistical challenges in scRNA-seq data analysis » in Toulouse. 
     - 23/05/2022: EPIT workshop in CIRM (Marseille).
     - 29/03/2022: MLSP seminar at ENS Lyon.

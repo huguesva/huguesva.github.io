@@ -22,6 +22,6 @@ I am a PhD student in the department of Mathematics ([UMPA](http://www.umpa.ens-
 In my research, I develop novel machine learning algorithms for **data analysis** based on **optimal transport**, focusing particularly on **clustering**, **dimensionality reduction** and **alignment**. 
 I aim to apply these tools to harness challenging datasets arising from **biomedical research**.
 
-Before starting my PhD, I was a [X](https://programmes.polytechnique.edu/cycle-ingenieur-polytechnicien/cycle-ingenieur-polytechnicien){:target="\_blank"} - [MVA](https://www.master-mva.com/){:target="\_blank"} student and interned at IBM research, Huawei Noah's Ark lab and Institut Pasteur.
+Before starting my PhD, I was a [Ecole polytechnique](https://programmes.polytechnique.edu/cycle-ingenieur-polytechnicien/cycle-ingenieur-polytechnicien){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"} master student.
 
 <!-- More information may be found in my [CV]({{ site.url }}/assets/pdf/CV_Hugues.pdf). -->
