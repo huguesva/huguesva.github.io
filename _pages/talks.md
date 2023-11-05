@@ -7,7 +7,7 @@ nav: true
 ---
 
 - **Optimal Transport for Clustering and Dimensionality Reduction**.
-    - 12/2023: NeurIPS 2023 conference (New Orleans, USA).
+    - 12/2023: NeurIPS 2023 conference (small gathering in Paris and main event in New Orleans, USA).
     - 11/2023: RT MIA thematic day on Dimensionality reduction, Lyon.
     - 11/2023: PariSanté campus.
 
