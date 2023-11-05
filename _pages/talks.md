@@ -7,15 +7,16 @@ nav: true
 ---
 
 - **Optimal Transport for Clustering and Dimensionality Reduction**.
-    - 06/11/2023: PariSanté campus.
-
+    - 12/2023: NeurIPS 2023 conference (New Orleans, USA).
+    - 11/2023: RT MIA thematic day on Dimensionality reduction, Lyon.
+    - 11/2023: PariSanté campus.
 
 - **Graph Coupling for Dimensionality Reduction**. [Slides]({{ site.url }}/assets/pdf/mlsp_GC.pdf). [Poster]({{ site.url }}/assets/pdf/Poster_Neurips2022.pdf). [Video](https://slideslive.com/38991393/a-probabilistic-graph-coupling-view-of-dimension-reduction?ref=search-presentations-van+assel){:target="\_blank"}.
-    - 28/11/2022: NeurIPS 2022 conference (New Orleans, USA).
-    - 10/10/2022: Workshop « Statistical challenges in scRNA-seq data analysis » in Toulouse. 
-    - 23/05/2022: EPIT workshop in CIRM (Marseille).
-    - 29/03/2022: MLSP seminar at ENS Lyon.
-    - 06/04/2022: Statlearn workshop in Cargèse (Corse).
+    - 11/2022: NeurIPS 2022 conference (New Orleans, USA).
+    - 10/2022: Workshop « Statistical challenges in scRNA-seq data analysis » in Toulouse. 
+    - 05/2022: EPIT workshop in CIRM (Marseille).
+    - 04/2022: Statlearn workshop in Cargèse (Corse).
+    - 03/2022: MLSP seminar at ENS Lyon.
  
 - **Miscellaneous**.
     - 05/2021: [SingleStatOmics](https://anr-singlestatomics.pages.math.cnrs.fr/){:target="\_blank"} meeting, online. *High-dimensional Gaussian graphical models on network-linked data* (Li et al.). [Slides]({{ site.url }}/assets/pdf/HD_GGM_network_pres.pdf).
