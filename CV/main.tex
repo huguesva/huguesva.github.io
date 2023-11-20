@@ -1,0 +1,331 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+\usepackage{standalone}
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\patchcmd{\makecvtitle}%
+  {\hfill\null\\[2.5em]}%
+  {\hfill\null\\[0em]}%
+  {}%
+  {}%
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[scale=0.82]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%\usepackage[utf8]{inputenc}
+
+%\usepackage{booktabs}
+\usepackage{fontawesome}
+\usepackage{marvosym} % For cool symbols.
+%\usepackage{hyperref}
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty}
+
+% \usepackage{apacite}
+% \usepackage{bibentry}
+% \makeatletter\let\saved@bibitem\@bibitem\makeatother
+% \usepackage[colorlinks=true]{hyperref}
+% \makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+% \usepackage{hanging}
+% \newcommand\publication[1]{%
+%     \smallskip\par\hangpara{1.5em}{1}\bibentry{#1}\smallskip
+% }
+
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Hugues} % Your first name
+\familyname{Van Assel} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+%\address{Ecole polytechnique}{Ecole Normale Supérieure Paris-Saclay}
+\mobile{(+33) 627755584}
+
+
+%\fax{(000) 111 1113}
+ 
+%\social{github}{stefano-bragaglia}
+\email{hugues.van$\_$assel@ens-lyon.fr} 
+
+%\homepage{www.xyz.com/}{My Webpage}
+
+% social link \faGithub, \faSkype, \faLinkedin,\faStackExchange, and \faStackOverflow
+\extrainfo{30/06/1997
+    %\faGithub\href{https://github.com/huguesva}{ Github} \quad
+    % \faLinkedin\href{https://www.linkedin.com/in/hugues-van-assel-080172156/}{ Linkedin} \quad
+    % %\faSkype\href{https://skype.com/abc}{Skype}
+    }
+
+
+%\social[linkedin][www.linkedin.com]{name}
+% The first argument is %the url for the clickable link, the second argument is the url displayed in the %template - this allows special characters to be displayed such as the tilde in this %example
+
+%\photo[80pt][0.2pt]{picture_face} % The first bracket is the picture height, the second is %the thickness of the frame around the picture (0pt for no frame)
+%\quote{Not Attention, Patience is all we need.}
+
+%----------------------------------------------------------------------------------------
+
+
+\usepackage{multibbl}
+\newcommand\Colorhref[3][orange]{\href{#2}{\small\color{#1}#3}}
+
+% \newcommand{\cvreference}[7]{%
+%     \textbf{#1}\newline% Name
+%     \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+%     \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+%     \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+%     \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+%     \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+%     \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+% \begin{abstract}
+% \normalsize
+% \begin{center}
+% \abstractname
+% \vspace{-2em}\vspace{0pt}
+% \textit{PhD student at ENS Lyon, 
+% interested in various problems arising from optimal transport and graphs. High proficiency in machine learning programming and research, with experience in various environments (IBM, Huawei, Institut Pasteur...).}
+% \end{center}
+% \end{abstract}
+
+\vspace{1cm}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\section{Current Position}
+
+\cventry{September 2021--...}{Ecole Normale Supérieure de Lyon}{PhD}{Mathematics Department}{Director: Aurélien Garivier, Co-Advisor: Titouan Vayer}
+{Areas of interest include optimal transport, dimensionality reduction, clustering.}
+% :\begin{itemize}
+    % \item Building a unifying framework for dimension reduction models based on random graph coupling problems (accepted at Neurips 2022).
+    % \item Designing metric learning methods for dimension reduction.
+    % \item Constructing new dimension reduction methods based on doubly stochastic kernels resulting from regularized optimal transport problems.
+    % \item Focusing on efficient methods for optimal alignment (Gromov-Wasserstein) using kernels.
+% \end{itemize}}
+
+\section{Education}
+
+\cventry{2020--2021}{Ecole Normale Supérieure Paris-Saclay}{Master 2 Research}{\textit{Applied Mathematics}}{\textit{MVA}}{}
+% {\begin{itemize}
+%     % \item Research degree in mathematics for machine learning taught by researchers at \textit{Inria} and \textit{CNRS}.
+%     \item Relevant coursework includes \textit{Probabilistic Graphical Models, Computational Statistics, Optimal Transport, Random Graphs, Kernel Methods, Bayesian Machine Learning, Convex and Large Scale Computing Optimization, Differential Geometry, Sparse Representations, Biostatistics}.
+% \end{itemize}}  % Arguments not required can be left empty
+
+\cventry{2017--2020}{Ecole polytechnique}{\textit{Cycle ingénieur}, Master of Science}{\textit{Applied Mathematics}}{}
+{}
+% {
+% \begin{itemize}
+%     % \item One of France’s leading universities for science and engineering.
+%     \item Relevant coursework includes \textit{Statistical Learning, Probabilistic Modelling, Monte Carlo Methods, Operations Research, Machine Learning, Control, Stochastic Calculus, Real Analysis, Algorithmics, Quantum Physics, Fluid Mechanics, Neurosciences, Computational Biology.}
+% \end{itemize}}
+%{Advanced exposure to various areas of computer science along with a one and half year research project on Reversible Logic Synthesis.}
+%\cvitem{CGPA :}{7.96/10}
+\cventry{2015--2017}{Lycée Sainte Genevi\`{e}ve Versailles}{Preparatory Program}{}{}{}
+% {\begin{itemize}
+%     % \item A post-secondary two-year program in advanced math and physics leading to nationwide entrance examinations to the \textit{Grandes Ecoles} for scientific studies.
+%     \item Undergraduate coursework includes \textit{Linear Algebra, Calculus, Physics, Chemistry, Computer Science}.
+% \end{itemize}}
+
+
+%----------------------------------------------------------------------------------------
+%	OPEN SOURCE CONTRIBUTION
+%----------------------------------------------------------------------------------------
+
+% \section{Selected Project Work}
+
+% \cventry{Nov 2020 - Jan 2021}{Optimal Transport of t-Distribution Mixture Models}{Supervised by Dr. Gabriel Peyré}{}{}
+% {\begin{itemize}
+%     \item Working on a computationally efficient Wasserstein-type distance in the space of elliptical mixtures by restricting the set of possible couplings.
+% \end{itemize}
+% }
+
+% \cventry{Sep 2020 - Dec 2020}{EM algorithms for Hidden Markov Models}{Supervised by Dr. Stéphanie Allasonnière}{}{}
+% {\begin{itemize}
+%     \item Implemented EM algorithms designed for Hidden Markov Models and applied it to pattern recognition on genome sequences.
+% \end{itemize}
+% }
+
+% \cventry{Sep 2019 - Dec 2019}{Fair learning in NLP}{Supervised by Dr. Jean-Michel Loubes}{}{}
+% {\begin{itemize}
+%     \item Conducted experiments around the compounding imbalances theorem highlighting risks of semantic representation biases in decisions based on NLP models.
+% \end{itemize}
+% }
+
+% \cventry{Mar 2019 -- June 2019}{Anti-Spoofing Neural Networks}{Supervised by Dr. Maks Ovsjanikov}{}{}
+% {\begin{itemize}
+%     \item Pytorch implementation of \textit{Learning Deep Models for Face Anti-Spoofing: Binary or Auxiliary Supervision}.
+%     \item The model identifies live faces by leveraging a CNN-RNN architecture trained to estimate face depth and cardiac signals.
+% \end{itemize}
+% }
+
+% \cventry{Sep 2018 - June 2019}{Xtoken}{In collaboration with \textit{Consensys Paris}}{}{}
+% {\begin{itemize}
+%     \item Created a decentralized payment system with \textit{Ethereum} smart contracts that students can use to pay at school restaurants.
+% \end{itemize}
+% }
+
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATION SECTION
+%----------------------------------------------------------------------------------------
+
+
+\section{Publications}
+
+% \subsection{Journal Article(Accepted)}
+% \cventry{2019}{\textbf{Pratik Dutta}, Sriparna Saha, Sanket Pai and Aviral Kumar}{}{Protein-protein Interaction based Generative Model for Improving Gene Clustering}{In \textit{\textbf{Scientific Reports-Nature}} (\textbf{Impact Factor: 4.12)}}{}
+
+%\subsection{Journal Articles}
+%\newbibliography{journal}
+%\bibliographystyle{journal}{plainyrrev}
+%\nocite{journal}{*}
+%\bibliography{journal}{journal}
+%{\large \textsc{Refereed Journal Articles}}
+
+% \subsection{In Conference Proceedings}
+\newbibliography{conference}
+\nocite{conference}{*}
+\bibliographystyle{conference}{plainyrrev}
+\bibliography{conference}{conference}
+{\large \textsc{Refereed Conference Publications}}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Internships}
+
+%\cventry{April 2021 -- August 2021}{University of Oxford}{\textit{Research Intern in the Decision and Bayesian Computation team}}{Paris}{}
+%{
+%Research based on identifying behavorial structure of animal motion from deep latent embeddings built with temporal convolutional networks. These embeddings are then used to identify neural substrates of competitive interactions and sequence transitions.
+%}
+
+%\cvitem{Advisors :}{Dr. Jean-Baptiste Masson, \textit{Principal investigator of the Decision and Bayesian computation laboratory at Institut Pasteur}}
+
+\cventry{2020-2021}{Institut Pasteur}{\textit{Part-time Research Assistant, Decision and Bayesian Computation team}}{Paris}{Supervised by Jean-Baptiste Masson}
+{\begin{itemize}
+    \item Modelled behavorial structure of animal motion through deep latent embeddings using variational temporal convolutional networks, outperforming previous RNN-based approaches.
+    % \item Used these embeddings to identify neural substrates of competitive interactions and sequence transitions.
+    % \item Currently making the model probabilistic and experimenting with variational inference training methods to account for uncertainties and incorporate priors from human annotations.
+\end{itemize}
+}
+
+\cventry{Summer 2020}{Huawei Noah's Ark Lab}{Research Intern, Reinforcement Learning team}{London}{Supervised by Vincent Moens and Haitham Bou-Ammar}
+{\begin{itemize}
+    \item Worked on regularised policy gradient estimation for model-based reinforcement learning. Resulted in a patent.
+    % \item Designed the proposal as probability transformations of the auxiliary variables allowing to perform stochastic backpropagation, implemented it with normalizing flows trained to minimize a variance objective.
+    % \item Showed that regularized gradients improve sample efficiency of methods used in continuous control tasks. Provided implementations with normalizing flow architectures.
+    % \item Resulted in a patent.
+\end{itemize}}
+
+\cventry{Summer 2019}{IBM}{\textit{Intern, Extreme Blue program}}{Paris}{}{\begin{itemize}
+    \item Worked on explainable time series forecasting models for industrial applications. 
+    % \item Presented my work at the \textit{IBM Extreme Blue} 2019 conference.
+\end{itemize}}
+
+
+%----------------------------------------------------------------------------------------
+%	Teaching Assistantship SECTION
+%----------------------------------------------------------------------------------------
+\section{Teaching}
+
+\cventry{2021-...}{Teaching assistant}{Ecole Normale Supérieure de Lyon}{}{}{
+\begin{itemize}
+    \item Preparing (master) students for the "agrégation" competitive exams in mathematics. Teaching sessions related to integration and probability.
+\end{itemize}
+}
+
+\cventry{2021-2022}{Teaching assistant}{Université Claude Bernard Lyon 1}{}{}{
+\begin{itemize}
+    \item Teaching the exercise sessions for bachelor students in statistics.
+\end{itemize}
+}
+
+\cventry{2018-2021}{Khôlleur in preparatory classes}{Lycée Sainte Geneviève Versailles and Lycée Carnot Paris}{}{}{
+\begin{itemize}
+    \item Examinations in Mathematics and Physics for second year students preparing for competitive entrance exams to France's \textit{Grandes Ecoles}.
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	Skills
+%----------------------------------------------------------------------------------------
+\section{Programming Skills}
+
+\cvitem{Languages}{Python, C++, Java}
+\cvitem{ML models}{ PyTorch : deep neural network architectures, variational autoencoders, normalizing flows, Gaussian processes, RL algorithms, optimal transport, kernel methods etc...
+}
+
+% ----------------------------------------------------------------------------------------
+% 	Fellowships \& Awards
+% ----------------------------------------------------------------------------------------
+
+\section{Awards}
+
+\cvitem{2021}{AMX doctoral grant for PhD at ENS Lyon.}
+
+\cvitem{2020}{Outstanding Leadership and Outstanding Investment Awards bestowed by Ecole polytechnique.}
+
+
+%----------------------------------------------------------------------------------------
+%	Position of Responsibility SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Miscellaneous}
+
+\cventry{2018-2019}{Student Associations}{Vice President of Ecole polytechnique Junior Enterprise (XProjets), Debater at French Debating Association league, Organizer of orientation week}{}{}{}
+
+\cventry{Fall 2017 and Spring 2018}{Military training}{Officer Cadet in the Armed Forces}{\textit{Saint-Cyr Coëtquidan \& Régiment de Marche du Tchad}}{}
+{
+% begin{itemize}
+%     \item Part of Ecole polytechnique first year curriculum.
+%     \item Field combat simulation and physical training in an infantry regiment.
+% \end{itemize}
+}
+
+
+% \cventry{}{Soft Skills}{}{}{}{\begin{itemize}
+  % \item Acting
+%   \item Model United Nations delegate
+%   \item Debating, semi-finalist FDA league
+% \end{itemize}}
+
+\end{document}
