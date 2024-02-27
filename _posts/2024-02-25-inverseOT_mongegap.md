@@ -2,7 +2,7 @@
 layout: distill
 title: Inverse optimal transport does not require unrolling
 description: A note on the equivalence between inverse OT and minimizing the Monge gap.
-tags: ['OT']
+tags: ['OT', 'DR']
 giscus_comments: false
 date: 2024-02-25
 featured: false
@@ -26,7 +26,7 @@ Entropic OT <d-cite key="peyre2019computational"></d-cite> is a powerful tool wi
 We consider two discrete distributions that we wish to compare: $$\sum_i a_i \delta_{\bf{x}_i}$$ <d-footnote> $\delta_{\bf{x}}$ is a dirac distribution with a unit mass in position $\bf{x}$ and $0$ elsewhere. </d-footnote> and $$\sum_j b_j \delta_{\bf{y}_j}$$ where $$\bf{a}$$ $$= (a_1,...,a_p)$$ and $$\bf{b}$$ $$= (b_1,...,b_m)$$ are vectors with positive entries  in the probability simplex (*ie*  such that $$\sum_i a_i = \sum_j b_j =1$$).
 We also consider a cost matrix $$\bf{C}$$ with entries $$C_{ij} = d(\bf{x}_i, \bf{y}_j)$$ where $$d$$ is a dissimilarity function.
 
-**Primal problem.** The entropic OT problem reads
+**Primal problem.** The entropic OT problem reads <d-footnote> $\langle \mathbf{C}, \mathbf{P} \rangle = \sum_{ij} C_{ij} P_{ij}$ denotes the Euclidean inner product. </d-footnote> 
 
 $$
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -81,7 +81,7 @@ $$
 
 ### Inverse Optimal Transport :arrow_right_hook:
 
-In inverse OT <d-cite key="ma2020learning"></d-cite>, from an OT plan $$\widehat{\mathbf{P}}$$, one seeks to reconstruct a cost $$\mathbf{C}$$ likely to have generated $$\widehat{\mathbf{P}}$$ when solving OT on $$\mathbf{C}$$. 
+In inverse OT <d-cite key="ma2020learning"></d-cite>, from an OT plan $$\widehat{\mathbf{P}} \in \Pi(\mathbf{a}, \mathbf{b})$$, one seeks to reconstruct a cost $$\mathbf{C}$$ likely to have generated $$\widehat{\mathbf{P}}$$ when solving OT on $$\mathbf{C}$$. 
 We will see some applications in what follows.
 
 When using entropic OT, the inverse OT problem is usually formulated with a KL divergence 
@@ -98,7 +98,16 @@ $$
 
 **Issue** : the above is a nested problem and we need to unroll the Sinkhorn iterations of the inner problem \eqref{eq:inner_invot} to solve the outer problem \eqref{eq:outer_invot}. Another approach would be to rely on the implicit function theorem but it requires a costly inversion.
 
-Hopefully, a computationally simpler formulation can be derived from the above, as shown in the theorem 1 of <d-cite key="ma2020learning"></d-cite>. We detail this derivation in what follows.
+Hopefully, a computationally simpler formulation can be derived from the above, as shown in the theorem 1 of <d-cite key="ma2020learning"></d-cite>. 
+Indeed, problem \eqref{eq:outer_invot} is equivalent to the following single-level problem.
+
+$$
+\begin{align}
+    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle + \langle \bf{g}, \bf{b} \rangle + \varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+\end{align}
+$$
+
+We detail this derivation in what follows.
 
 ### Simplification of inverse OT :rocket:
 
@@ -137,7 +146,9 @@ $$
 Focusing on the last term, using that $$\widehat{\bf{P}} \in \Pi(\bf{a}, \bf{b})$$ it holds 
 $$
 \begin{align}
-    \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle &= \langle \bf{f}^\star, \bf{a} \rangle + \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle &= \sum_i f^\star_i \sum_j \widehat{P}_{ij} + \sum_j g^\star_j \sum_i \widehat{P}_{ij} \\
+    &= \sum_i f^\star_i a_i + \sum_j g^\star_j b_j \\
+    &= \langle \bf{f}^\star, \bf{a} \rangle + \langle \bf{g}^\star, \bf{b} \rangle \:.
 \end{align}
 $$
 Therefore
@@ -465,12 +476,10 @@ plt.show()
 First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings using unrolling and the Monge gap trick presented in this blog.
 ![](/assets/img/blog-invot/swiss_roll_inverse_OT.svg){:style="display:block; margin-left:auto; margin-right:auto; width:100%;"}
 
-The Monge gap approach is faster than unrolling as we can see on the following plot.
+Regarding run-time, the Monge gap approach is faster than unrolling as we can see on the following plot. Hence the trick presented in this blog has a great practical interest, especially for large-scale applications.
 ![](/assets/img/blog-invot/timings.svg){:style="display:block; margin-left:auto; margin-right:auto; width:50%;"}
-Another benefit is that it doesn't need to store the computational graph of the Sinkhorn forward pass so it is more memory efficient as well.
 
-
-:bulb: Interestingly, the same trick can be applied in the context of contrastive learning where inverse OT is useful as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views $$(\bf{y}_1, .., \bf{y}_n)$$ of input data points $$(\bf{x}_1, .., \bf{x}_n)$$. The ground truth coupling $$\widehat{\bf{P}}$$ is taken such that $$\widehat{P}_{ij}=1$$ if $$\bf{y}_j$$ is an augmented view of $$\bf{x}_i$$ and $$0$$ otherwise. Then, inverse OT can be applied to compute latent representations $$(\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_n))$$ where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered in this context <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_n)$ as target points while symmetric inverse OT treats each point indifferently. </d-footnote>.
+:bulb: Interestingly, the same trick can be applied in the context of contrastive learning where inverse OT is useful as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views $$(\bf{y}_1, .., \bf{y}_n)$$ of input data points $$(\bf{x}_1, .., \bf{x}_n)$$. The ground truth coupling $$\widehat{\bf{P}}$$ is taken such that $$\widehat{P}_{ij}=1$$ if $$\bf{y}_j$$ is an augmented view of $$\bf{x}_i$$ and $$0$$ otherwise. Then, inverse OT can be applied to compute latent representations $$(\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_n))$$ where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered in this context <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_n)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\bf{P}}$ as target coupling.</d-footnote>.
 
 :pencil2: Feel free to contact me for any question or remark on this blog !
 

@@ -36,6 +36,9 @@
 <loc>http://localhost:4000/blog/tag/ot/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/blog/tag/dr/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/blog/2024/</loc>
 </url>
 </urlset>
