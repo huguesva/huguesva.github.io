@@ -21,7 +21,7 @@ I am a PhD student in the department of Mathematics ([UMPA](http://www.umpa.ens-
 
 I work in the field of **machine learning** / **data analysis**.
 In my research, I develop unsupervised learning algorithms based on **optimal transport** and **probabilistic modelling**.
-I focusing mainly on **dimensionality reduction** and **clustering**. 
+I focus mainly on **dimensionality reduction** and **clustering**. 
 I am particularly interested in biological applications (cellular biology, neuroscience ...) of these methods.
 <!-- I aim to apply these tools to harness challenging datasets arising from **biomedical research**. -->
 

@@ -1,0 +1,85 @@
+@article{ma2020learning,
+  title={Learning cost functions for optimal transport},
+  author={Ma, Shaojun and Sun, Haodong and Ye, Xiaojing and Zha, Hongyuan and Zhou, Haomin},
+  journal={arXiv preprint arXiv:2002.09650},
+  year={2020}
+}
+
+@article{peyre2019computational,
+  title={Computational optimal transport: With applications to data science},
+  author={Peyr{\'e}, Gabriel and Cuturi, Marco and others},
+  journal={Foundations and Trends in Machine Learning},
+  volume={11},
+  number={5-6},
+  pages={355--607},
+  year={2019},
+  publisher={Now Publishers, Inc.}
+}
+
+@article{van2024snekhorn,
+  title={SNEkhorn: Dimension reduction with symmetric entropic affinities},
+  author={Van Assel, Hugues and Vayer, Titouan and Flamary, R{\'e}mi and Courty, Nicolas},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  year={2024}
+}
+
+@InProceedings{pmlr-v202-shi23j,
+  title = 	 {Understanding and Generalizing Contrastive Learning from the Inverse Optimal Transport Perspective},
+  author =       {Shi, Liangliang and Zhang, Gu and Zhen, Haoyu and Fan, Jintao and Yan, Junchi},
+  booktitle = 	 {Proceedings of the 40th International Conference on Machine Learning},
+  pages = 	 {31408--31421},
+  year = 	 {2023},
+  editor = 	 {Krause, Andreas and Brunskill, Emma and Cho, Kyunghyun and Engelhardt, Barbara and Sabato, Sivan and Scarlett, Jonathan},
+  volume = 	 {202},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {23--29 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v202/shi23j/shi23j.pdf},
+  url = 	 {https://proceedings.mlr.press/v202/shi23j.html},
+  abstract = 	 {Previous research on contrastive learning (CL) has primarily focused on pairwise views to learn representations by attracting positive samples and repelling negative ones. In this work, we aim to understand and generalize CL from a point set matching perspective, instead of the comparison between two points. Specifically, we formulate CL as a form of inverse optimal transport (IOT), which involves a bilevel optimization procedure for learning where the outter minimization aims to learn the representations and the inner is to learn the coupling (i.e. the probability of matching matrix) between the point sets. Specifically, by adjusting the relaxation degree of constraints in the inner minimization, we obtain three contrastive losses and show that the dominant contrastive loss in literature InfoNCE falls into one of these losses. This reveals a new and more general algorithmic framework for CL. Additionally, the soft matching scheme in IOT induces a uniformity penalty to enhance representation learning which is akin to the CL’s uniformity. Results on vision benchmarks show the effectiveness of our derived loss family and the new uniformity term.}
+}
+
+@article{sinkhorn1967concerning,
+  title={Concerning nonnegative matrices and doubly stochastic matrices},
+  author={Sinkhorn, Richard and Knopp, Paul},
+  journal={Pacific Journal of Mathematics},
+  volume={21},
+  number={2},
+  pages={343--348},
+  year={1967},
+  publisher={Mathematical Sciences Publishers}
+}
+
+@InProceedings{pmlr-v202-uscidda23a,
+  title = 	 {The Monge Gap: A Regularizer to Learn All Transport Maps},
+  author =       {Uscidda, Th\'{e}o and Cuturi, Marco},
+  booktitle = 	 {Proceedings of the 40th International Conference on Machine Learning},
+  pages = 	 {34709--34733},
+  year = 	 {2023},
+  editor = 	 {Krause, Andreas and Brunskill, Emma and Cho, Kyunghyun and Engelhardt, Barbara and Sabato, Sivan and Scarlett, Jonathan},
+  volume = 	 {202},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {23--29 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v202/uscidda23a/uscidda23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v202/uscidda23a.html},
+  abstract = 	 {Optimal transport (OT) theory has been used in machine learning to study and characterize maps that can push-forward efficiently a probability measure onto another. Recent works have drawn inspiration from Brenier’s theorem, which states that when the ground cost is the squared-Euclidean distance, the “best” map to morph a continuous measure in $\mathcal{P}(\mathbb{R}^d)$ into another must be the gradient of a convex function. To exploit that result, Makkuva et. al (2020); Korotin et. al (2020) consider maps $T=\nabla f_\theta$, where $f_\theta$ is an input convex neural network (ICNN), as defined by Amos et. al (2017), and fit $\theta$ with SGD using samples. Despite their mathematical elegance, fitting OT maps with ICNNs raises many challenges, due notably to the many constraints imposed on $\theta$; the need to approximate the conjugate of $f_\theta$; or the limitation that they only work for the squared-Euclidean cost. More generally, we question the relevance of using Brenier’s result, which only applies to densities, to constrain the architecture of candidate maps fitted on samples. Motivated by these limitations, we propose a radically different approach to estimating OT maps: Given a cost $c$ and a reference measure $\rho$, we introduce a regularizer, the Monge gap $\mathcal{M}^c_{\rho}(T)$ of a map $T$. That gap quantifies how far a map $T$ deviates from the ideal properties we expect from a $c$-OT map. In practice, we drop all architecture requirements for $T$ and simply minimize a distance (e.g., the Sinkhorn divergence) between $T\sharp\mu$ and $\nu$, regularized by $\mathcal{M}^c_\rho(T)$. We study $\mathcal{M}^c_{\rho}$ and show how our simple pipeline significantly outperforms other baselines in practice.}
+}
+
+@inproceedings{genevay2018learning,
+  title={Learning generative models with sinkhorn divergences},
+  author={Genevay, Aude and Peyr{\'e}, Gabriel and Cuturi, Marco},
+  booktitle={International Conference on Artificial Intelligence and Statistics},
+  pages={1608--1617},
+  year={2018},
+  organization={PMLR}
+}
+
+@article{courty2017joint,
+  title={Joint distribution optimal transportation for domain adaptation},
+  author={Courty, Nicolas and Flamary, R{\'e}mi and Habrard, Amaury and Rakotomamonjy, Alain},
+  journal={Advances in neural information processing systems},
+  volume={30},
+  year={2017}
+}

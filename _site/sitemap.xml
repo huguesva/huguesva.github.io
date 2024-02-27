@@ -17,8 +17,8 @@
 <lastmod>2024-02-12T00:00:00+01:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog/</loc>
-<lastmod>2022-04-24T01:20:09+02:00</lastmod>
+<loc>http://localhost:4000/blog/2024/inverseOT_mongegap/</loc>
+<lastmod>2024-02-25T00:00:00+01:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -33,6 +33,9 @@
 <loc>http://localhost:4000/teaching/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/blog/2022/</loc>
+<loc>http://localhost:4000/blog/tag/ot/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog/2024/</loc>
 </url>
 </urlset>
