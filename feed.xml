@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://huguesva.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://huguesva.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-27T16:08:22+00:00</updated><id>https://huguesva.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://huguesva.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://huguesva.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-27T21:20:11+00:00</updated><id>https://huguesva.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 </subtitle><entry><title type="html">Inverse optimal transport does not require unrolling</title><link href="https://huguesva.github.io/blog/2024/inverseOT_mongegap/" rel="alternate" type="text/html" title="Inverse optimal transport does not require unrolling" /><published>2024-02-25T00:00:00+00:00</published><updated>2024-02-25T00:00:00+00:00</updated><id>https://huguesva.github.io/blog/2024/inverseOT_mongegap</id><content type="html" xml:base="https://huguesva.github.io/blog/2024/inverseOT_mongegap/"><![CDATA[<p>This blog is about an elegant and practical reformulation of inverse Optimal Transport (OT) that enables efficient computations. It is based on a derivation found in <d-cite key="ma2020learning"></d-cite>. In the last part, we apply this trick to efficiently learn low dimensional data representations.</p>
 
 <h3 id="background-on-entropic-optimal-transport">Background on (Entropic) Optimal Transport</h3>
@@ -8,7 +8,7 @@
 <p>We consider two discrete distributions that we wish to compare: \(\sum_i a_i \delta_{\bf{x}_i}\) <d-footnote> $\delta_{\bf{x}}$ is a dirac distribution with a unit mass in position $\bf{x}$ and $0$ elsewhere. </d-footnote> and \(\sum_j b_j \delta_{\bf{y}_j}\) where \(\bf{a}\) \(= (a_1,...,a_p)\) and \(\bf{b}\) \(= (b_1,...,b_m)\) are vectors with positive entries  in the probability simplex (<em>ie</em>  such that \(\sum_i a_i = \sum_j b_j =1\)).
 We also consider a cost matrix \(\bf{C}\) with entries \(C_{ij} = d(\bf{x}_i, \bf{y}_j)\) where \(d\) is a dissimilarity function.</p>
 
-<p><strong>Primal problem.</strong> The entropic OT problem reads</p>
+<p><strong>Primal problem.</strong> The entropic OT problem reads <d-footnote> $\langle \mathbf{C}, \mathbf{P} \rangle = \sum_{ij} C_{ij} P_{ij}$ denotes the Euclidean inner product. </d-footnote></p>
 
 \[\DeclareMathOperator*{\argmin}{arg\,min}
 \begin{align}\label{eq:eot}
@@ -52,7 +52,7 @@ for optimal primal \(\bf{P}^\star\) and dual \((\bf{f}^\star, \bf{g}^\star)\) va
 
 <h3 id="inverse-optimal-transport-arrow_right_hook">Inverse Optimal Transport :arrow_right_hook:</h3>
 
-<p>In inverse OT <d-cite key="ma2020learning"></d-cite>, from an OT plan \(\widehat{\mathbf{P}}\), one seeks to reconstruct a cost \(\mathbf{C}\) likely to have generated \(\widehat{\mathbf{P}}\) when solving OT on \(\mathbf{C}\). 
+<p>In inverse OT <d-cite key="ma2020learning"></d-cite>, from an OT plan \(\widehat{\mathbf{P}} \in \Pi(\mathbf{a}, \mathbf{b})\), one seeks to reconstruct a cost \(\mathbf{C}\) likely to have generated \(\widehat{\mathbf{P}}\) when solving OT on \(\mathbf{C}\). 
 We will see some applications in what follows.</p>
 
 <p>When using entropic OT, the inverse OT problem is usually formulated with a KL divergence 
@@ -67,7 +67,14 @@ The problem we consider is as follows</p>
 
 <p><strong>Issue</strong> : the above is a nested problem and we need to unroll the Sinkhorn iterations of the inner problem \eqref{eq:inner_invot} to solve the outer problem \eqref{eq:outer_invot}. Another approach would be to rely on the implicit function theorem but it requires a costly inversion.</p>
 
-<p>Hopefully, a computationally simpler formulation can be derived from the above, as shown in the theorem 1 of <d-cite key="ma2020learning"></d-cite>. We detail this derivation in what follows.</p>
+<p>Hopefully, a computationally simpler formulation can be derived from the above, as shown in the theorem 1 of <d-cite key="ma2020learning"></d-cite>. 
+Indeed, problem \eqref{eq:outer_invot} is equivalent to the following single-level problem.</p>
+
+\[\begin{align}
+    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle + \langle \bf{g}, \bf{b} \rangle + \varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+\end{align}\]
+
+<p>We detail this derivation in what follows.</p>
 
 <h3 id="simplification-of-inverse-ot-rocket">Simplification of inverse OT :rocket:</h3>
 
@@ -96,7 +103,9 @@ The problem we consider is as follows</p>
 
 <p>Focusing on the last term, using that \(\widehat{\bf{P}} \in \Pi(\bf{a}, \bf{b})\) it holds 
 \(\begin{align}
-    \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle &amp;= \langle \bf{f}^\star, \bf{a} \rangle + \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle &amp;= \sum_i f^\star_i \sum_j \widehat{P}_{ij} + \sum_j g^\star_j \sum_i \widehat{P}_{ij} \\
+    &amp;= \sum_i f^\star_i a_i + \sum_j g^\star_j b_j \\
+    &amp;= \langle \bf{f}^\star, \bf{a} \rangle + \langle \bf{g}^\star, \bf{b} \rangle \:.
 \end{align}\)
 Therefore
 \(\begin{align}
@@ -398,10 +407,9 @@ We are given a dataset \((\bf{x}_1, .., \bf{x}_n)\) and the goal is to compute e
 <p>First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings using unrolling and the Monge gap trick presented in this blog.
 <img src="/assets/img/blog-invot/swiss_roll_inverse_OT.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:100%;" /></p>
 
-<p>The Monge gap approach is faster than unrolling as we can see on the following plot.
-<img src="/assets/img/blog-invot/timings.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:50%;" />
-Another benefit is that it doesn’t need to store the computational graph of the Sinkhorn forward pass so it is more memory efficient as well.</p>
+<p>Regarding run-time, the Monge gap approach is faster than unrolling as we can see on the following plot. Hence the trick presented in this blog has a great practical interest, especially for large-scale applications.
+<img src="/assets/img/blog-invot/timings.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:50%;" /></p>
 
-<p>:bulb: Interestingly, the same trick can be applied in the context of contrastive learning where inverse OT is useful as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views \((\bf{y}_1, .., \bf{y}_n)\) of input data points \((\bf{x}_1, .., \bf{x}_n)\). The ground truth coupling \(\widehat{\bf{P}}\) is taken such that \(\widehat{P}_{ij}=1\) if \(\bf{y}_j\) is an augmented view of \(\bf{x}_i\) and \(0\) otherwise. Then, inverse OT can be applied to compute latent representations \((\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_n))\) where \(\phi_{\theta}\) is a neural network. Note that both directed and symmetric inverse OT can be considered in this context <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_n)$ as target points while symmetric inverse OT treats each point indifferently. </d-footnote>.</p>
+<p>:bulb: Interestingly, the same trick can be applied in the context of contrastive learning where inverse OT is useful as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views \((\bf{y}_1, .., \bf{y}_n)\) of input data points \((\bf{x}_1, .., \bf{x}_n)\). The ground truth coupling \(\widehat{\bf{P}}\) is taken such that \(\widehat{P}_{ij}=1\) if \(\bf{y}_j\) is an augmented view of \(\bf{x}_i\) and \(0\) otherwise. Then, inverse OT can be applied to compute latent representations \((\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_n))\) where \(\phi_{\theta}\) is a neural network. Note that both directed and symmetric inverse OT can be considered in this context <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_n)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\bf{P}}$ as target coupling.</d-footnote>.</p>
 
-<p>:pencil2: Feel free to contact me for any question or remark on this blog !</p>]]></content><author><name>Hugues Van Assel</name></author><category term="OT" /><summary type="html"><![CDATA[A note on the equivalence between inverse OT and minimizing the Monge gap.]]></summary></entry></feed>
+<p>:pencil2: Feel free to contact me for any question or remark on this blog !</p>]]></content><author><name>Hugues Van Assel</name></author><category term="OT" /><category term="DR" /><summary type="html"><![CDATA[A note on the equivalence between inverse OT and minimizing the Monge gap.]]></summary></entry></feed>
