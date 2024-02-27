@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-27T16:26:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-27T17:04:50+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 </subtitle><entry><title type="html">Inverse optimal transport does not require unrolling</title><link href="http://localhost:4000/blog/2024/inverseOT_mongegap/" rel="alternate" type="text/html" title="Inverse optimal transport does not require unrolling" /><published>2024-02-25T00:00:00+01:00</published><updated>2024-02-25T00:00:00+01:00</updated><id>http://localhost:4000/blog/2024/inverseOT_mongegap</id><content type="html" xml:base="http://localhost:4000/blog/2024/inverseOT_mongegap/"><![CDATA[<p>This blog is about an elegant and practical reformulation of inverse Optimal Transport (OT) that enables efficient computations. It is based on a derivation found in <d-cite key="ma2020learning"></d-cite>. In the last part, we apply this trick to efficiently learn low dimensional data representations.</p>
 
 <h3 id="background-on-entropic-optimal-transport">Background on (Entropic) Optimal Transport</h3>
@@ -8,7 +8,7 @@
 <p>We consider two discrete distributions that we wish to compare: \(\sum_i a_i \delta_{\bf{x}_i}\) <d-footnote> $\delta_{\bf{x}}$ is a dirac distribution with a unit mass in position $\bf{x}$ and $0$ elsewhere. </d-footnote> and \(\sum_j b_j \delta_{\bf{y}_j}\) where \(\bf{a}\) \(= (a_1,...,a_p)\) and \(\bf{b}\) \(= (b_1,...,b_m)\) are vectors with positive entries  in the probability simplex (<em>ie</em>  such that \(\sum_i a_i = \sum_j b_j =1\)).
 We also consider a cost matrix \(\bf{C}\) with entries \(C_{ij} = d(\bf{x}_i, \bf{y}_j)\) where \(d\) is a dissimilarity function.</p>
 
-<p><strong>Primal problem.</strong> The entropic optimal transport problem reads</p>
+<p><strong>Primal problem.</strong> The entropic OT problem reads</p>
 
 \[\DeclareMathOperator*{\argmin}{arg\,min}
 \begin{align}\label{eq:eot}
@@ -56,12 +56,12 @@ for optimal primal \(\bf{P}^\star\) and dual \((\bf{f}^\star, \bf{g}^\star)\) va
 We will see some applications in what follows.</p>
 
 <p>When using entropic OT, the inverse OT problem is usually formulated with a KL divergence 
-\(\mathrm{KL}(\bf{P} | \bf{Q}) = \langle \bf{P}, \log (\bf{P} \oslash \bf{Q}) \rangle - \bf{P} + \bf{Q}\). 
+\(\mathrm{KL}(\bf{P} \| \bf{Q}) = \langle \bf{P}, \log (\bf{P} \oslash \bf{Q}) \rangle - \bf{P} + \bf{Q}\). 
 The problem we consider is as follows</p>
 
 \[\DeclareMathOperator*{\argmin}{arg\,min}
 \begin{align}
-\min_{\mathbf{C}} \quad &amp;\mathrm{KL}(\widehat{\mathbf{P}} | \mathbf{P}^{\mathbf{C}}) \label{eq:outer_invot}\\[1em]
+\min_{\mathbf{C}} \quad &amp;\mathrm{KL}(\widehat{\mathbf{P}} \| \mathbf{P}^{\mathbf{C}}) \label{eq:outer_invot}\\[1em]
 \text{s.t.} \quad &amp;\mathbf{P}^{\mathbf{C}} = \argmin_{\mathbf{P} \in \Pi(\mathbf{a}, \mathbf{b})} \: \: \langle \mathbf{C}, \mathbf{P} \rangle - \varepsilon \mathrm{H}(\mathbf{P}) \label{eq:inner_invot} \:.
 \end{align}\]
 
@@ -74,7 +74,7 @@ The problem we consider is as follows</p>
 <p>A first step is to observe that the outer objective \eqref{eq:outer_invot} of inverse OT can be expressed in terms of the optimal dual variables \((\bf{f}^\star,\bf{g}^\star)\) of the entropic OT inner problem \eqref{eq:inner_invot}. Indeed, it holds</p>
 
 \[\begin{align}\label{eq:first_step}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} | \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
 \end{align}\]
 
 <details><summary>proof</summary>
@@ -90,7 +90,7 @@ The problem we consider is as follows</p>
 
 <p>Therefore we have
 \(\begin{align}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} | \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right) &amp;= - \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star - \bf{C} \right\rangle \\
+    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right) &amp;= - \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star - \bf{C} \right\rangle \\
     &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle \:.
 \end{align}\)</p>
 
@@ -100,13 +100,13 @@ The problem we consider is as follows</p>
 \end{align}\)
 Therefore
 \(\begin{align}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} | \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
 \end{align}\)</p>
 </details>
 
 <p>In equation \eqref{eq:first_step}, \(\bf{f}^\star\) and \(\bf{g}^\star\) implicitly depend on \(\bf{C}\) through problem \eqref{eq:dual_eot}. Thus we are still stuck with the bilevel structure and have’nt made any real progress yet.</p>
 
-<p>Recall that we would like to derive a joint objective for both outer variable $\bf{C}$ and inner variables $(\bf{f}, \bf{g})$. To do so, one can notice that equation \eqref{eq:first_step} has terms in common with the dual problem of entropic OT \eqref{eq:dual_eot}. Indeed, in both \eqref{eq:dual_eot} and \eqref{eq:first_step} we find
+<p>Recall that we would like to derive a joint single-level objective for both outer variable $\bf{C}$ and inner variables $(\bf{f}, \bf{g})$. To do so, one can notice that equation \eqref{eq:first_step} has terms in common with the dual problem of entropic OT \eqref{eq:dual_eot}. Indeed, in both \eqref{eq:dual_eot} and \eqref{eq:first_step} we find
 \(\begin{align}
 \langle\bf{f},\bf{a}\rangle+\langle\bf{g},\bf{b}\rangle \:.
 \end{align}\)</p>
@@ -118,7 +118,7 @@ Doing so, we define the following joint objective
     + &amp;\varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
 \end{align}\)</p>
 
-<p>For any \(\bf{C}\), minimizing \(\cal{G}\) with respect to \((\bf{f}, \bf{g})\) exactly amounts to solving dual entropic OT \eqref{eq:dual_eot} hence we have:
+<p>For any \(\bf{C}\), minimizing \(\cal{G}\) with respect to \((\bf{f}, \bf{g})\) exactly amounts to solving dual entropic OT \eqref{eq:dual_eot}, because \(\left\langle \widehat{\bf{P}}, \bf{C} \right\rangle\) does not depend on \((\bf{f}, \bf{g})\). Hence we have:
 \(\begin{align}
     \min_{\bf{f},\bf{g}} \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) = \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle + \varepsilon \left\langle \bf{P}^{\bf{C}}, \bf{1} \bf{1}^\top \right\rangle
 \end{align}\)</p>
@@ -130,10 +130,10 @@ Doing so, we define the following joint objective
     \left\langle \bf{P}^{\bf{C}}, \bf{1} \bf{1}^\top \right\rangle = \sum_{ij} P^{\bf{C}}_{ij} = \sum_i a_i = 1 \:.
 \end{align}\)</p>
 
-<p>Thus, when evaluted in \((\bf{f}^\star,\bf{g}^\star)\), thanks to equation \eqref{eq:first_step} the objective writes
+<p>Thus, when evaluated in \((\bf{f}^\star,\bf{g}^\star)\), thanks to equation \eqref{eq:first_step} the objective writes
 \(\begin{align}
     \min_{\bf{f},\bf{g}} \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) &amp;= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle + \varepsilon \\
-    &amp;= \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} | \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) + \textrm{1} \right) \label{eq:final_derivation} \:.
+    &amp;= \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) + \textrm{1} \right) \label{eq:final_derivation} \:.
 \end{align}\)</p>
 
 <p>Minimizing the above with respect to \(\bf{C}\) then amounts to minimizing \(\mathrm{KL}(\widehat{\bf{P}}\|\bf{P}^{\bf{C}})\) since it is the only term that depends on \(\bf{C}\) in equation \eqref{eq:final_derivation}.</p>
@@ -173,14 +173,13 @@ Doing so, we define the following joint objective
 .
 We are given a dataset \((\bf{x}_1, .., \bf{x}_n)\) and the goal is to compute embeddings \((\bf{z}_1, .., \bf{z}_n)\) such that each \(\bf{z}_i\) is a low-dimensional representation of the input data point \(\bf{x}_i\).</p>
 
-<p>To do so, we are going to look for a cost of the form \(d(\bf{z}_i, \bf{z}_j)\) which solves inverse OT with an input \(\widehat{\bf{P}}\) computed from \((\bf{x}_1, .., \bf{x}_n)\). To compute \(\widehat{\bf{P}}\), one can simply solve the symmetric variant of entropic OT wich is exactly problem \eqref{eq:eot} with symmetric \(\bf{C}\) and \(\bf{a}=\bf{b}\).</p>
+<p>To do so, we are going to look for a cost of the form \(d(\bf{z}_i, \bf{z}_j)\) which solves inverse OT with an input \(\widehat{\bf{P}}\) computed from \((\bf{x}_1, .., \bf{x}_n)\). To compute \(\widehat{\bf{P}}\), one can simply solve the symmetric variant of entropic OT wich is exactly problem \eqref{eq:eot} with symmetric \(\bf{C}\) \(=(d(\bf{x}_i, \bf{x}_j))_{ij}\) and \(\bf{a}=\bf{b}\). We pick \(\bf{a}=\bf{b}=\bf{1}\) to give the same mass to every data point.</p>
 
 <p>In symmetric entropic OT, we only have one dual variable \(\bf{f}\) as the primal solution is given by \(\widehat{\bf{P}} = \exp((\bf{f}^\star \oplus \bf{f}^\star - \bf{C}) / \varepsilon)\). Moreover \(\bf{f}^\star\) can be computed by simply iterating <d-footnote> In the code we use the following well-conditioned variant : $f_i \leftarrow \frac{1}{2} (f_i-\varepsilon \log \sum_j e^{(f_j-C_{ij}) / \varepsilon})$. </d-footnote>.</p>
 
-<p>\(\begin{align}
+\[\begin{align}
   f_i &amp;\leftarrow - \varepsilon \log \sum_j e^{(f_j-C_{ij}) / \varepsilon} \label{eq:sinkhorn-sym} \:. 
-\end{align}\)
-Note that we can pick \(\bf{a}=\bf{b}=\bf{1}\) to give the same mass to every data point.</p>
+\end{align}\]
 
 <p>:bulb: In symmetric entropic OT, each point spreads its mass to its closest neighbors thus capturing the geometry of the data. In this context, the regularizer \(\varepsilon\) controls the scale of dependencies that is captured.</p>
 
@@ -399,7 +398,7 @@ Note that we can pick \(\bf{a}=\bf{b}=\bf{1}\) to give the same mass to every da
 <p>First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings using unrolling and the Monge gap trick presented in this blog.
 <img src="/assets/img/blog-invot/swiss_roll_inverse_OT.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:100%;" /></p>
 
-<p>However, the Monge gap approach is faster as we can see on the following plot.
+<p>The Monge gap approach is faster than unrolling as we can see on the following plot.
 <img src="/assets/img/blog-invot/timings.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:50%;" />
 Another benefit is that it doesn’t need to store the computational graph of the Sinkhorn forward pass so it is more memory efficient as well.</p>
 
