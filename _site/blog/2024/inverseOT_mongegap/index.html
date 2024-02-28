@@ -254,10 +254,10 @@ The problem we consider is as follows</p>
 <p><strong>Issue</strong> : the above is a nested problem and we need to unroll the Sinkhorn iterations of the inner problem \eqref{eq:inner_invot} to solve the outer problem \eqref{eq:outer_invot}. Another approach would be to rely on the implicit function theorem but it requires a costly inversion.</p>
 
 <p>Hopefully, a computationally simpler formulation can be derived from the above, as shown in the theorem 1 of <d-cite key="ma2020learning"></d-cite>. 
-Indeed, problem \eqref{eq:outer_invot} is equivalent to the following single-level problem.</p>
+Indeed, problem \eqref{eq:outer_invot} is equivalent to the following single-level problem</p>
 
 \[\begin{align}
-    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle + \langle \bf{g}, \bf{b} \rangle + \varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle - \langle \bf{g}, \bf{b} \rangle + \varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
 \end{align}\]
 
 <p>We detail this derivation in what follows.</p>
@@ -307,10 +307,10 @@ Therefore
 \langle\bf{f},\bf{a}\rangle+\langle\bf{g},\bf{b}\rangle \:.
 \end{align}\)</p>
 
-<p>Now the <strong>key trick</strong> is to add the missing term of dual entropic OT \eqref{eq:dual_eot} in \eqref{eq:first_step}. 
+<p>The <strong>trick</strong> is to add the missing term of dual entropic OT \eqref{eq:dual_eot} in \eqref{eq:first_step}. 
 Doing so, we define the following joint objective
 \(\begin{align}
-    \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) = &amp;\left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle + \langle \bf{g}, \bf{b} \rangle \\
+    \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) = &amp;\left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle - \langle \bf{g}, \bf{b} \rangle \\
     + &amp;\varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
 \end{align}\)</p>
 
@@ -591,13 +591,17 @@ We are given a dataset \((\bf{x}_1, .., \bf{x}_n)\) and the goal is to compute e
 
 </details>
 
-<p>First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings using unrolling and the Monge gap trick presented in this blog.
+<p>First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings \((\bf{z}_1, .., \bf{z}_n)\) using unrolling and the Monge gap trick presented in this blog.
 <img src="/assets/img/blog-invot/swiss_roll_inverse_OT.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:100%;"></p>
 
 <p>Regarding run-time, the Monge gap approach is faster than unrolling as we can see on the following plot. Hence the trick presented in this blog has a great practical interest, especially for large-scale applications.
 <img src="/assets/img/blog-invot/timings.svg" alt="" style="display:block; margin-left:auto; margin-right:auto; width:50%;"></p>
 
-<p><img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png" height="20" width="20"> Interestingly, the same trick can be applied in the context of contrastive learning where inverse OT is useful as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views \((\bf{y}_1, .., \bf{y}_n)\) of input data points \((\bf{x}_1, .., \bf{x}_n)\). The ground truth coupling \(\widehat{\bf{P}}\) is taken such that \(\widehat{P}_{ij}=1\) if \(\bf{y}_j\) is an augmented view of \(\bf{x}_i\) and \(0\) otherwise. Then, inverse OT can be applied to compute latent representations \((\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_n))\) where \(\phi_{\theta}\) is a neural network. Note that both directed and symmetric inverse OT can be considered in this context <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_n)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\bf{P}}$ as target coupling.</d-footnote>.</p>
+<p><img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png" height="20" width="20"> Inverse OT is also useful for contrastive learning as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views \((\bf{y}_1, .., \bf{y}_r)\) of input data points \((\bf{x}_1, .., \bf{x}_n)\). The ground truth coupling \(\widehat{\bf{P}}\) is taken such that \(\widehat{P}_{ij}=1\) if \(\bf{y}_j\) is an augmented view of \(\bf{x}_i\) and \(0\) otherwise. Then, inverse OT can be applied to compute latent representations 
+\(\begin{align}
+(\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_r))
+\end{align}\)
+where \(\phi_{\theta}\) is a neural network. Note that both directed and symmetric inverse OT can be considered <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_r)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\bf{P}}$ as target coupling.</d-footnote>. Interestingly, the trick presented in this blog can be applied in this context thus alleviating the need to perform backpropagation through the Sinkhorn iterations.</p>
 
 <p><img class="emoji" title=":pencil2:" alt=":pencil2:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="20" width="20"> Feel free to contact me for any question or remark on this blog !</p>
 
