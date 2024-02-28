@@ -256,7 +256,7 @@ $$
 
 :bulb: In symmetric entropic OT, each point spreads its mass to its closest neighbors thus capturing the geometry of the data. In this context, the regularizer $$\varepsilon$$ controls the scale of dependencies that is captured.
 
-Once we have computed $$\widehat{\bf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\bf{z}_1, .., \bf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developped in <d-cite key="van2024snekhorn"></d-cite>.
+Once we have computed $$\widehat{\bf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\bf{z}_1, .., \bf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developped in <d-cite key="van2024snekhorn"></d-cite> <d-footnote> This work relies on a more elaborate version of symmetric entropic OT for computing $\widehat{\bf{P}}$ but the methodology to update the $(\bf{z}_1, .., \bf{z}_n)$ is the same as here. </d-footnote>. 
 
 To do so, we rely on the presented trick for inverse OT and therefore focus on solving
 $$
