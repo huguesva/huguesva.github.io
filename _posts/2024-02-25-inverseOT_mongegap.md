@@ -23,8 +23,8 @@ This blog is about an elegant and practical reformulation of inverse Optimal Tra
 
 Entropic OT <d-cite key="peyre2019computational"></d-cite> is a powerful tool with many applications in machine learning, including generative modelling <d-cite key="genevay2018learning"></d-cite>, domain adaptation <d-cite key="courty2017joint"></d-cite> and dimensionality reduction <d-cite key="van2024snekhorn"></d-cite>. 
 
-We consider two discrete distributions that we wish to compare: $$\sum_i a_i \delta_{\bf{x}_i}$$ <d-footnote> $\delta_{\bf{x}}$ is a dirac distribution with a unit mass in position $\bf{x}$ and $0$ elsewhere. </d-footnote> and $$\sum_j b_j \delta_{\bf{y}_j}$$ where $$\bf{a}$$ $$= (a_1,...,a_p)$$ and $$\bf{b}$$ $$= (b_1,...,b_m)$$ are vectors with positive entries  in the probability simplex (*ie*  such that $$\sum_i a_i = \sum_j b_j =1$$).
-We also consider a cost matrix $$\bf{C}$$ with entries $$C_{ij} = d(\bf{x}_i, \bf{y}_j)$$ where $$d$$ is a dissimilarity function.
+We consider two discrete distributions that we wish to compare: $$\sum_i a_i \delta_{\mathbf{x}_i}$$ <d-footnote> $\delta_{\mathbf{x}}$ is a dirac distribution with a unit mass in position $\mathbf{x}$ and $0$ elsewhere. </d-footnote> and $$\sum_j b_j \delta_{\mathbf{y}_j}$$ where $$\mathbf{a}$$ $$= (a_1,...,a_p)$$ and $$\mathbf{b}$$ $$= (b_1,...,b_m)$$ are vectors with positive entries  in the probability simplex (*ie*  such that $$\sum_i a_i = \sum_j b_j =1$$).
+We also consider a cost matrix $$\mathbf{C}$$ with entries $$C_{ij} = d(\mathbf{x}_i, \mathbf{y}_j)$$ where $$d$$ is a dissimilarity function.
 
 **Primal problem.** The entropic OT problem reads <d-footnote> $\langle \mathbf{C}, \mathbf{P} \rangle = \sum_{ij} C_{ij} P_{ij}$ denotes the Euclidean inner product. </d-footnote> 
 
@@ -35,41 +35,41 @@ $$
 \end{align}
 $$
 
-where $$\Pi(\mathbf{a}, \mathbf{b})=\left\{\bf{P}\bf{\geq0},\bf{P}\bf{1}=\bf{a},\bf{P}^{\top}\bf{1}=\bf{b}\right\}$$ is the set of couplings with marginals $$(\mathbf{a}, \mathbf{b})$$ and $$\mathrm{H}(\mathbf{P}) = - \langle \mathbf{P}, \log \mathbf{P} - \bf{1} \bf{1}^\top \rangle$$ <d-footnote> $\bf{1}$ is the vector of ones $(1,...,1)$. </d-footnote>.
+where $$\Pi(\mathbf{a}, \mathbf{b})=\left\{\mathbf{P}\mathbf{\geq0},\mathbf{P}\mathbf{1}=\mathbf{a},\mathbf{P}^{\top}\mathbf{1}=\mathbf{b}\right\}$$ is the set of couplings with marginals $$(\mathbf{a}, \mathbf{b})$$ and $$\mathrm{H}(\mathbf{P}) = - \langle \mathbf{P}, \log \mathbf{P} - \mathbf{1} \mathbf{1}^\top \rangle$$ <d-footnote> $\mathbf{1}$ is the vector of ones $(1,...,1)$. </d-footnote>.
 $$\varepsilon > 0$$ is a regularizer that sets the entropy of the transport plan.  
 
 **Dual problem.** The above entropic OT problem \eqref{eq:eot} can be solved through the following dual
 
 $$
 \begin{align}\label{eq:dual_eot}
-    \max_{\bf{f},\bf{g}} \: \: \langle \bf{f}, \bf{a} \rangle + \langle \bf{g}, \bf{b} \rangle - \varepsilon \left\langle \exp((\bf{f} \oplus \bf{g} - \bf{C}) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+    \max_{\mathbf{f},\mathbf{g}} \: \: \langle \mathbf{f}, \mathbf{a} \rangle + \langle \mathbf{g}, \mathbf{b} \rangle - \varepsilon \left\langle \exp((\mathbf{f} \oplus \mathbf{g} - \mathbf{C}) / \varepsilon), \mathbf{1} \mathbf{1}^\top \right\rangle \:.
 \end{align}
 $$
 
-The solution $$\bf{P}^\star$$ of the primal problem \eqref{eq:eot} can be expressed in terms of the optimal dual variables $$(\bf{f}^\star, \bf{g}^\star)$$ solving \eqref{eq:dual_eot} as 
-$$\bf{P}^{\star} = \exp((\bf{f}^\star \oplus \bf{g}^\star - \bf{C}) / \varepsilon)$$.
+The solution $$\mathbf{P}^\star$$ of the primal problem \eqref{eq:eot} can be expressed in terms of the optimal dual variables $$(\mathbf{f}^\star, \mathbf{g}^\star)$$ solving \eqref{eq:dual_eot} as 
+$$\mathbf{P}^{\star} = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon)$$.
 
 {% details proof %}
-The Lagrangian of the above problem is as follows, with dual variables $$\bf{f}$$ and $$\bf{g}$$
+The Lagrangian of the above problem is as follows, with dual variables $$\mathbf{f}$$ and $$\mathbf{g}$$
 $$
 \begin{align}\label{eq:lagrangian_eot}
-    \langle \mathbf{C}, \mathbf{P} \rangle - \varepsilon \mathrm{H}(\mathbf{P}) - \langle \bf{f}, \bf{P} \bf{1} - \bf{a} \rangle - \langle \bf{g}, \bf{P}^\top \bf{1} - \bf{b} \rangle \:. 
+    \langle \mathbf{C}, \mathbf{P} \rangle - \varepsilon \mathrm{H}(\mathbf{P}) - \langle \mathbf{f}, \mathbf{P} \mathbf{1} - \mathbf{a} \rangle - \langle \mathbf{g}, \mathbf{P}^\top \mathbf{1} - \mathbf{b} \rangle \:. 
 \end{align}
 $$
 Strong duality holds for \eqref{eq:eot} and the first order KKT condition gives
 $$
 \begin{align}
-    \mathbf{C} - \varepsilon \log(\mathbf{P}^\star) - \bf{f}^\star\bf{1}^\top - \bf{1}(\bf{g}^\star)^{\top} \bf{=0}
+    \mathbf{C} - \varepsilon \log(\mathbf{P}^\star) - \mathbf{f}^\star\mathbf{1}^\top - \mathbf{1}(\mathbf{g}^\star)^{\top} \mathbf{=0}
 \end{align}
 $$
-for optimal primal $$\bf{P}^\star$$ and dual $$(\bf{f}^\star, \bf{g}^\star)$$ variables. 
+for optimal primal $$\mathbf{P}^\star$$ and dual $$(\mathbf{f}^\star, \mathbf{g}^\star)$$ variables. 
 
-It gives the primal/dual relation $$\bf{P}^\star = \exp((\bf{f}^\star \oplus \bf{g}^\star - \bf{C}) / \varepsilon)$$. 
+It gives the primal/dual relation $$\mathbf{P}^\star = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon)$$. 
 
 Plugging it back into the Lagrangian we recover the dual objective of equation \eqref{eq:dual_eot}.
 {% enddetails %}
 
-Problem \eqref{eq:dual_eot} can be solved using block coordinate ascent, alternatively optimizing with respect to $$\bf{f}$$ and $$\bf{g}$$ with the following updates:
+Problem \eqref{eq:dual_eot} can be solved using block coordinate ascent, alternatively optimizing with respect to $$\mathbf{f}$$ and $$\mathbf{g}$$ with the following updates:
 $$
 \begin{align}
   f_i &\leftarrow \varepsilon \log a_i - \varepsilon \log \sum_j e^{(g_j-C_{ij}) / \varepsilon} \label{eq:sinkhorn-f} \\
@@ -85,7 +85,7 @@ In inverse OT <d-cite key="ma2020learning"></d-cite>, from an OT plan $$\widehat
 We will see some applications in what follows.
 
 When using entropic OT, the inverse OT problem is usually formulated with a KL divergence 
-$$\mathrm{KL}(\bf{P} \| \bf{Q}) = \langle \bf{P}, \log (\bf{P} \oslash \bf{Q}) \rangle - \bf{P} + \bf{Q}$$. 
+$$\mathrm{KL}(\mathbf{P} \| \mathbf{Q}) = \langle \mathbf{P}, \log (\mathbf{P} \oslash \mathbf{Q}) \rangle - \mathbf{P} + \mathbf{Q}$$. 
 The problem we consider is as follows
 
 $$
@@ -103,7 +103,7 @@ Indeed, problem \eqref{eq:outer_invot} is equivalent to the following single-lev
 
 $$
 \begin{align}
-    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle - \langle \bf{g}, \bf{b} \rangle + \varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+    \min_{\mathbf{C}, \mathbf{f}, \mathbf{g}} \: \: \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}, \mathbf{a} \rangle - \langle \mathbf{g}, \mathbf{b} \rangle + \varepsilon \left\langle \exp(\left(\mathbf{f} \oplus \mathbf{g} - \mathbf{C}\right) / \varepsilon), \mathbf{1} \mathbf{1}^\top \right\rangle \:.
 \end{align}
 $$
 
@@ -111,11 +111,11 @@ We detail this derivation in what follows.
 
 ### Simplification of inverse OT :rocket:
 
-A first step is to observe that the outer objective \eqref{eq:outer_invot} of inverse OT can be expressed in terms of the optimal dual variables $$(\bf{f}^\star,\bf{g}^\star)$$ of the entropic OT inner problem \eqref{eq:inner_invot}. Indeed, it holds
+A first step is to observe that the outer objective \eqref{eq:outer_invot} of inverse OT can be expressed in terms of the optimal dual variables $$(\mathbf{f}^\star,\mathbf{g}^\star)$$ of the entropic OT inner problem \eqref{eq:inner_invot}. Indeed, it holds
 
 $$
 \begin{align}\label{eq:first_step}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \varepsilon \left( \mathrm{KL}(\widehat{\mathbf{P}} \| \mathbf{P}^{\mathbf{C}}) + \operatorname{H}(\widehat{\mathbf{P}}) \right)  &= \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}^\star, \mathbf{a} \rangle - \langle \mathbf{g}^\star, \mathbf{b} \rangle \:.
 \end{align}
 $$
 
@@ -123,48 +123,48 @@ $$
 The KL can be decomposed as
 $$
 \begin{align}
-\operatorname{KL}(\widehat{\bf{P}} | \bf{P}^{\bf{C}}) = - \langle \widehat{\bf{P}}, \log \bf{P}^{\bf{C}} \rangle - \operatorname{H}(\widehat{\bf{P}}) \:.
+\operatorname{KL}(\widehat{\mathbf{P}} | \mathbf{P}^{\mathbf{C}}) = - \langle \widehat{\mathbf{P}}, \log \mathbf{P}^{\mathbf{C}} \rangle - \operatorname{H}(\widehat{\mathbf{P}}) \:.
 \end{align}
 $$
 
 
-For optimal dual variables $$(\bf{f}^\star, \bf{g}^\star)$$, the solution of the primal of entropic OT is given by
+For optimal dual variables $$(\mathbf{f}^\star, \mathbf{g}^\star)$$, the solution of the primal of entropic OT is given by
 $$
 \begin{align}
-    \bf{P}^{\mathbf{C}} = \exp((\bf{f}^\star \oplus \bf{g}^\star - \bf{C}) / \varepsilon) \:.
+    \mathbf{P}^{\mathbf{C}} = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon) \:.
 \end{align}
 $$
 
 Therefore we have
 $$
 \begin{align}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right) &= - \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star - \bf{C} \right\rangle \\
-    &= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle \:.
+    \varepsilon \left( \mathrm{KL}(\widehat{\mathbf{P}} \| \mathbf{P}^{\mathbf{C}}) + \operatorname{H}(\widehat{\mathbf{P}}) \right) &= - \left\langle \widehat{\mathbf{P}}, \mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C} \right\rangle \\
+    &= \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \left\langle \widehat{\mathbf{P}}, \mathbf{f}^\star \oplus \mathbf{g}^\star \right\rangle \:.
 \end{align}
 $$
 
-Focusing on the last term, using that $$\widehat{\bf{P}} \in \Pi(\bf{a}, \bf{b})$$ it holds 
+Focusing on the last term, using that $$\widehat{\mathbf{P}} \in \Pi(\mathbf{a}, \mathbf{b})$$ it holds 
 $$
 \begin{align}
-    \left\langle \widehat{\bf{P}}, \bf{f}^\star \oplus \bf{g}^\star \right\rangle &= \sum_i f^\star_i \sum_j \widehat{P}_{ij} + \sum_j g^\star_j \sum_i \widehat{P}_{ij} \\
+    \left\langle \widehat{\mathbf{P}}, \mathbf{f}^\star \oplus \mathbf{g}^\star \right\rangle &= \sum_i f^\star_i \sum_j \widehat{P}_{ij} + \sum_j g^\star_j \sum_i \widehat{P}_{ij} \\
     &= \sum_i f^\star_i a_i + \sum_j g^\star_j b_j \\
-    &= \langle \bf{f}^\star, \bf{a} \rangle + \langle \bf{g}^\star, \bf{b} \rangle \:.
+    &= \langle \mathbf{f}^\star, \mathbf{a} \rangle + \langle \mathbf{g}^\star, \mathbf{b} \rangle \:.
 \end{align}
 $$
 Therefore
 $$
 \begin{align}
-    \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) \right)  &= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle \:.
+    \varepsilon \left( \mathrm{KL}(\widehat{\mathbf{P}} \| \mathbf{P}^{\mathbf{C}}) + \operatorname{H}(\widehat{\mathbf{P}}) \right)  &= \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}^\star, \mathbf{a} \rangle - \langle \mathbf{g}^\star, \mathbf{b} \rangle \:.
 \end{align}
 $$
 {% enddetails %}
 
-In equation \eqref{eq:first_step}, $$\bf{f}^\star$$ and $$\bf{g}^\star$$ implicitly depend on $$\bf{C}$$ through problem \eqref{eq:dual_eot}. Thus we are still stuck with the bilevel structure and have'nt made any real progress yet.
+In equation \eqref{eq:first_step}, $$\mathbf{f}^\star$$ and $$\mathbf{g}^\star$$ implicitly depend on $$\mathbf{C}$$ through problem \eqref{eq:dual_eot}. Thus we are still stuck with the bilevel structure and have'nt made any real progress yet.
 
-Recall that we would like to derive a joint single-level objective for both outer variable $\bf{C}$ and inner variables $(\bf{f}, \bf{g})$. To do so, one can notice that equation \eqref{eq:first_step} has terms in common with the dual problem of entropic OT \eqref{eq:dual_eot}. Indeed, in both \eqref{eq:dual_eot} and \eqref{eq:first_step} we find
+Recall that we would like to derive a joint single-level objective for both outer variable $\mathbf{C}$ and inner variables $(\mathbf{f}, \mathbf{g})$. To do so, one can notice that equation \eqref{eq:first_step} has terms in common with the dual problem of entropic OT \eqref{eq:dual_eot}. Indeed, in both \eqref{eq:dual_eot} and \eqref{eq:first_step} we find
 $$
 \begin{align}
-\langle\bf{f},\bf{a}\rangle+\langle\bf{g},\bf{b}\rangle \:.
+\langle\mathbf{f},\mathbf{a}\rangle+\langle\mathbf{g},\mathbf{b}\rangle \:.
 \end{align}
 $$
 
@@ -172,45 +172,45 @@ The **trick** is to add the missing term of dual entropic OT \eqref{eq:dual_eot}
 Doing so, we define the following joint objective
 $$
 \begin{align}
-    \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) = &\left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}, \bf{a} \rangle - \langle \bf{g}, \bf{b} \rangle \\
-    + &\varepsilon \left\langle \exp(\left(\bf{f} \oplus \bf{g} - \bf{C}\right) / \varepsilon), \bf{1} \bf{1}^\top \right\rangle \:.
+    \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}, \mathbf{f}, \mathbf{g}) = &\left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}, \mathbf{a} \rangle - \langle \mathbf{g}, \mathbf{b} \rangle \\
+    + &\varepsilon \left\langle \exp(\left(\mathbf{f} \oplus \mathbf{g} - \mathbf{C}\right) / \varepsilon), \mathbf{1} \mathbf{1}^\top \right\rangle \:.
 \end{align}
 $$
 
-For any $$\bf{C}$$, minimizing $$\cal{G}$$ with respect to $$(\bf{f}, \bf{g})$$ exactly amounts to solving dual entropic OT \eqref{eq:dual_eot}, because $$\left\langle \widehat{\bf{P}}, \bf{C} \right\rangle$$ does not depend on $$(\bf{f}, \bf{g})$$. Hence we have:
+For any $$\mathbf{C}$$, minimizing $$\cal{G}$$ with respect to $$(\mathbf{f}, \mathbf{g})$$ exactly amounts to solving dual entropic OT \eqref{eq:dual_eot}, because $$\left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle$$ does not depend on $$(\mathbf{f}, \mathbf{g})$$. Hence we have:
 $$
 \begin{align}
-    \min_{\bf{f},\bf{g}} \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) = \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle + \varepsilon \left\langle \bf{P}^{\bf{C}}, \bf{1} \bf{1}^\top \right\rangle
+    \min_{\mathbf{f},\mathbf{g}} \: \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}, \mathbf{f}, \mathbf{g}) = \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}^\star, \mathbf{a} \rangle - \langle \mathbf{g}^\star, \mathbf{b} \rangle + \varepsilon \left\langle \mathbf{P}^{\mathbf{C}}, \mathbf{1} \mathbf{1}^\top \right\rangle
 \end{align}
 $$
 
-where $$\bf{P}^{\bf{C}} = \exp((\bf{f}^\star \oplus \bf{g}^\star - \bf{C}) / \varepsilon)$$ as we have seen in the first part.  
+where $$\mathbf{P}^{\mathbf{C}} = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon)$$ as we have seen in the first part.  
 
-Importantly, because we have $$\bf{P}^{\bf{C}} \in \Pi(\bf{a}, \bf{b})$$, we can notice that the term we added no longer depends on $$\bf{C}$$ when evaluted in $$(\bf{f}^\star,\bf{g}^\star)$$. Indeed
+Importantly, because we have $$\mathbf{P}^{\mathbf{C}} \in \Pi(\mathbf{a}, \mathbf{b})$$, we can notice that the term we added no longer depends on $$\mathbf{C}$$ when evaluted in $$(\mathbf{f}^\star,\mathbf{g}^\star)$$. Indeed
 $$
 \begin{align}
-    \left\langle \bf{P}^{\bf{C}}, \bf{1} \bf{1}^\top \right\rangle = \sum_{ij} P^{\bf{C}}_{ij} = \sum_i a_i = 1 \:.
+    \left\langle \mathbf{P}^{\mathbf{C}}, \mathbf{1} \mathbf{1}^\top \right\rangle = \sum_{ij} P^{\mathbf{C}}_{ij} = \sum_i a_i = 1 \:.
 \end{align}
 $$
 
-Thus, when evaluated in $$(\bf{f}^\star,\bf{g}^\star)$$, thanks to equation \eqref{eq:first_step} the objective writes
+Thus, when evaluated in $$(\mathbf{f}^\star,\mathbf{g}^\star)$$, thanks to equation \eqref{eq:first_step} the objective writes
 $$
 \begin{align}
-    \min_{\bf{f},\bf{g}} \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) &= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \langle \bf{f}^\star, \bf{a} \rangle - \langle \bf{g}^\star, \bf{b} \rangle + \varepsilon \\
-    &= \varepsilon \left( \mathrm{KL}(\widehat{\bf{P}} \| \bf{P}^{\bf{C}}) + \operatorname{H}(\widehat{\bf{P}}) + \textrm{1} \right) \label{eq:final_derivation} \:.
+    \min_{\mathbf{f},\mathbf{g}} \: \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}, \mathbf{f}, \mathbf{g}) &= \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \langle \mathbf{f}^\star, \mathbf{a} \rangle - \langle \mathbf{g}^\star, \mathbf{b} \rangle + \varepsilon \\
+    &= \varepsilon \left( \mathrm{KL}(\widehat{\mathbf{P}} \| \mathbf{P}^{\mathbf{C}}) + \operatorname{H}(\widehat{\mathbf{P}}) + \textrm{1} \right) \label{eq:final_derivation} \:.
 \end{align}
 $$
 
-Minimizing the above with respect to $$\bf{C}$$ then amounts to minimizing $$\mathrm{KL}(\widehat{\bf{P}}\|\bf{P}^{\bf{C}})$$ since it is the only term that depends on $$\bf{C}$$ in equation \eqref{eq:final_derivation}. 
+Minimizing the above with respect to $$\mathbf{C}$$ then amounts to minimizing $$\mathrm{KL}(\widehat{\mathbf{P}}\|\mathbf{P}^{\mathbf{C}})$$ since it is the only term that depends on $$\mathbf{C}$$ in equation \eqref{eq:final_derivation}. 
 
 Therefore solving inverse OT is equivalent to the following jointly convex problem
 $$
 \begin{align}\label{eq:new_form_invot}
-    \min_{\bf{C}, \bf{f}, \bf{g}} \: \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) \:.
+    \min_{\mathbf{C}, \mathbf{f}, \mathbf{g}} \: \: \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}, \mathbf{f}, \mathbf{g}) \:.
 \end{align}
 $$
 
-Concretely, this means that $$(\bf{C}^\star, \bf{f}^\star, \bf{g}^\star)$$ solves \eqref{eq:new_form_invot} if and only if $$\bf{C}^\star$$ solves inverse OT \eqref{eq:outer_invot} where $$\bf{P}^{\bf{C}} = \exp((\bf{f}^\star \oplus \bf{g}^\star - \bf{C}) / \varepsilon)$$ solves the inner problem \eqref{eq:inner_invot}.
+Concretely, this means that $$(\mathbf{C}^\star, \mathbf{f}^\star, \mathbf{g}^\star)$$ solves \eqref{eq:new_form_invot} if and only if $$\mathbf{C}^\star$$ solves inverse OT \eqref{eq:outer_invot} where $$\mathbf{P}^{\mathbf{C}} = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon)$$ solves the inner problem \eqref{eq:inner_invot}.
 
 ### Parallel with Monge gap
 
@@ -221,32 +221,32 @@ Since strong duality holds for entropic OT, one has the equality between the pri
 Therefore we have
 $$
 \begin{align}\label{eq:min_formulation_invot}
-    \min_{\bf{f},\bf{g}} \: \cal{G}(\widehat{\bf{P}}, \bf{C}, \bf{f}, \bf{g}) &= \left\langle \widehat{\bf{P}}, \bf{C} \right\rangle - \left(\min_{\mathbf{P} \in \Pi(\mathbf{a}, \mathbf{b})} \: \: \langle \mathbf{C}, \mathbf{P} \rangle - \varepsilon \mathrm{H}(\mathbf{P}) \right) \:.
+    \min_{\mathbf{f},\mathbf{g}} \: \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}, \mathbf{f}, \mathbf{g}) &= \left\langle \widehat{\mathbf{P}}, \mathbf{C} \right\rangle - \left(\min_{\mathbf{P} \in \Pi(\mathbf{a}, \mathbf{b})} \: \: \langle \mathbf{C}, \mathbf{P} \rangle - \varepsilon \mathrm{H}(\mathbf{P}) \right) \:.
 \end{align}
 $$
 
-Hence $$\cal{G}$$ quantifies the difference in the transport cost when using $$\widehat{\bf{P}}$$ against the solution of the inner problem $$\bf{P}^{\bf{C}}$$. This quantity is known as the Monge gap <d-cite key="pmlr-v202-uscidda23a"></d-cite>.
+Hence $$\cal{G}$$ quantifies the difference in the transport cost when using $$\widehat{\mathbf{P}}$$ against the solution of the inner problem $$\mathbf{P}^{\mathbf{C}}$$. This quantity is known as the Monge gap <d-cite key="pmlr-v202-uscidda23a"></d-cite>.
 
-:bulb: As discussed earlier, optimizing *w.r.t.* $$\bf{C}$$ an argmin like in \eqref{eq:inner_invot} requires computationally demanding tools such as unrolling or implicit function theorem. On the contrary, optimizing the min as in \eqref{eq:min_formulation_invot} is much simpler. It can be done using Danskin’s theorem (or envelope theorem). 
+:bulb: As discussed earlier, optimizing *w.r.t.* $$\mathbf{C}$$ an argmin like in \eqref{eq:inner_invot} requires computationally demanding tools such as unrolling or implicit function theorem. On the contrary, optimizing the min as in \eqref{eq:min_formulation_invot} is much simpler. It can be done using Danskin’s theorem (or envelope theorem). 
 
-In our case, this result simply states that, for each update of $$\bf{C}$$, we can optimize $$\cal{G}$$ in $$\bf{C}$$ by considering $$\bf{f}$$ and $$\bf{g}$$ as constants. Without further constraint on $$\bf{C}$$, the update reads
+In our case, this result simply states that, for each update of $$\mathbf{C}$$, we can optimize $$\cal{G}$$ in $$\mathbf{C}$$ by considering $$\mathbf{f}$$ and $$\mathbf{g}$$ as constants. Without further constraint on $$\mathbf{C}$$, the update reads
 $$
 \begin{align}\label{eq:update_C}
-  \bf{C} &\leftarrow \bf{f} \oplus \bf{g} - \varepsilon \log \widehat{\bf{P}} \:. 
+  \mathbf{C} &\leftarrow \mathbf{f} \oplus \mathbf{g} - \varepsilon \log \widehat{\mathbf{P}} \:. 
 \end{align}
 $$
 
-Overall, to efficiently solve inverse OT one can use block coordinate descent  alternating between updating $$\bf{f}$$ and $$\bf{g}$$ with Sinkhorn iterations \eqref{eq:sinkhorn-f}-\eqref{eq:sinkhorn-g} and updating $$\bf{C}$$ with \eqref{eq:update_C}.
+Overall, to efficiently solve inverse OT one can use block coordinate descent  alternating between updating $$\mathbf{f}$$ and $$\mathbf{g}$$ with Sinkhorn iterations \eqref{eq:sinkhorn-f}-\eqref{eq:sinkhorn-g} and updating $$\mathbf{C}$$ with \eqref{eq:update_C}.
 
 ### Applications to learn embeddings
 
 In this last part, we are going to see how inverse OT and the presented trick can be used to learn data representations, as shown in <d-cite key="van2024snekhorn"></d-cite>
 .
-We are given a dataset $$(\bf{x}_1, .., \bf{x}_n)$$ and the goal is to compute embeddings $$(\bf{z}_1, .., \bf{z}_n)$$ such that each $$\bf{z}_i$$ is a low-dimensional representation of the input data point $$\bf{x}_i$$.
+We are given a dataset $$(\mathbf{x}_1, .., \mathbf{x}_n)$$ and the goal is to compute embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ such that each $$\mathbf{z}_i$$ is a low-dimensional representation of the input data point $$\mathbf{x}_i$$.
 
-To do so, we are going to look for a cost of the form $$d(\bf{z}_i, \bf{z}_j)$$ which solves inverse OT with an input $$\widehat{\bf{P}}$$ computed from $$(\bf{x}_1, .., \bf{x}_n)$$. To compute $$\widehat{\bf{P}}$$, one can simply solve the symmetric variant of entropic OT wich is exactly problem \eqref{eq:eot} with symmetric $$\bf{C}$$ $$=(d(\bf{x}_i, \bf{x}_j))_{ij}$$ and $$\bf{a}=\bf{b}$$. We pick $$\bf{a}=\bf{b}=\bf{1}$$ to give the same mass to every data point.
+To do so, we are going to look for a cost of the form $$d(\mathbf{z}_i, \mathbf{z}_j)$$ which solves inverse OT with an input $$\widehat{\mathbf{P}}$$ computed from $$(\mathbf{x}_1, .., \mathbf{x}_n)$$. To compute $$\widehat{\mathbf{P}}$$, one can simply solve the symmetric variant of entropic OT wich is exactly problem \eqref{eq:eot} with symmetric $$\mathbf{C}$$ $$=(d(\mathbf{x}_i, \mathbf{x}_j))_{ij}$$ and $$\mathbf{a}=\mathbf{b}$$. We pick $$\mathbf{a}=\mathbf{b}=\mathbf{1}$$ to give the same mass to every data point.
 
-In symmetric entropic OT, we only have one dual variable $$\bf{f}$$ as the primal solution is given by $$\widehat{\bf{P}} = \exp((\bf{f}^\star \oplus \bf{f}^\star - \bf{C}) / \varepsilon)$$. Moreover $$\bf{f}^\star$$ can be computed by simply iterating <d-footnote> In the code we use the following well-conditioned variant : $f_i \leftarrow \frac{1}{2} (f_i-\varepsilon \log \sum_j e^{(f_j-C_{ij}) / \varepsilon})$. </d-footnote>. 
+In symmetric entropic OT, we only have one dual variable $$\mathbf{f}$$ as the primal solution is given by $$\widehat{\mathbf{P}} = \exp((\mathbf{f}^\star \oplus \mathbf{f}^\star - \mathbf{C}) / \varepsilon)$$. Moreover $$\mathbf{f}^\star$$ can be computed by simply iterating <d-footnote> In the code we use the following well-conditioned variant : $f_i \leftarrow \frac{1}{2} (f_i-\varepsilon \log \sum_j e^{(f_j-C_{ij}) / \varepsilon})$. </d-footnote>. 
 
 $$
 \begin{align}
@@ -256,16 +256,16 @@ $$
 
 :bulb: In symmetric entropic OT, each point spreads its mass to its closest neighbors thus capturing the geometry of the data. In this context, the regularizer $$\varepsilon$$ controls the scale of dependencies that is captured.
 
-Once we have computed $$\widehat{\bf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\bf{z}_1, .., \bf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developped in <d-cite key="van2024snekhorn"></d-cite> <d-footnote> This work relies on a more elaborate version of symmetric entropic OT for computing $\widehat{\bf{P}}$ but the methodology to update the $(\bf{z}_1, .., \bf{z}_n)$ is the same as here. </d-footnote>. 
+Once we have computed $$\widehat{\mathbf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developped in <d-cite key="van2024snekhorn"></d-cite> <d-footnote> This work relies on a more elaborate version of symmetric entropic OT for computing $\widehat{\mathbf{P}}$ but the methodology to update the $(\mathbf{z}_1, .., \mathbf{z}_n)$ is the same as here. </d-footnote>. 
 
 To do so, we rely on the presented trick for inverse OT and therefore focus on solving
 $$
 \begin{align}
-    \min_{(\bf{z}_1, .., \bf{z}_n), \bf{f}, \bf{g}} \: \: \cal{G}(\widehat{\bf{P}}, \bf{C}_{\bf{Z}}, \bf{f}, \bf{g}) \:.
+    \min_{(\mathbf{z}_1, .., \mathbf{z}_n), \mathbf{f}, \mathbf{g}} \: \: \cal{G}(\widehat{\mathbf{P}}, \mathbf{C}_{\mathbf{Z}}, \mathbf{f}, \mathbf{g}) \:.
 \end{align}
 $$
 
-where $$\bf{C}_{\bf{Z}}$$ it the symmetric cost matrix with entries $$d(\bf{z}_i, \bf{z}_j)$$.
+where $$\mathbf{C}_{\mathbf{Z}}$$ it the symmetric cost matrix with entries $$d(\mathbf{z}_i, \mathbf{z}_j)$$.
 
 We consider the common task of embedding the swiss roll (depicted below) from 3d to 2d.
 ![](/assets/img/blog-invot/swiss_roll.svg){:style="display:block; margin-left:auto; margin-right:auto; width:50%;"}
@@ -473,19 +473,19 @@ plt.show()
 {% endhighlight %}
 {% enddetails %}
 
-First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings $$(\bf{z}_1, .., \bf{z}_n)$$ using unrolling and the Monge gap trick presented in this blog.
+First, as shown in the figure below,  we can verify that we obtain exactly the same embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ using unrolling and the Monge gap trick presented in this blog.
 ![](/assets/img/blog-invot/swiss_roll_inverse_OT.svg){:style="display:block; margin-left:auto; margin-right:auto; width:100%;"}
 
 Regarding run-time, the Monge gap approach is faster than unrolling as we can see on the following plot. Hence the trick presented in this blog has a great practical interest, especially for large-scale applications.
 ![](/assets/img/blog-invot/timings.svg){:style="display:block; margin-left:auto; margin-right:auto; width:50%;"}
 
-:bulb: Inverse OT is also useful for contrastive learning as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views $$(\bf{y}_1, .., \bf{y}_r)$$ of input data points $$(\bf{x}_1, .., \bf{x}_n)$$. The ground truth coupling $$\widehat{\bf{P}}$$ is taken such that $$\widehat{P}_{ij}=1$$ if $$\bf{y}_j$$ is an augmented view of $$\bf{x}_i$$ and $$0$$ otherwise. Then, inverse OT can be applied to compute latent representations 
+:bulb: Inverse OT is also useful for contrastive learning as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views $$(\mathbf{y}_1, .., \mathbf{y}_r)$$ of input data points $$(\mathbf{x}_1, .., \mathbf{x}_n)$$. The ground truth coupling $$\widehat{\mathbf{P}}$$ is taken such that $$\widehat{P}_{ij}=1$$ if $$\mathbf{y}_j$$ is an augmented view of $$\mathbf{x}_i$$ and $$0$$ otherwise. Then, inverse OT can be applied to compute latent representations 
 $$
 \begin{align}
-(\phi_{\theta}(\bf{x}_1), .., \phi_{\theta}(\bf{x}_n), \phi_{\theta}(\bf{y}_1), ..., \phi_{\theta}(\bf{y}_r))
+(\phi_{\theta}(\mathbf{x}_1), .., \phi_{\theta}(\mathbf{x}_n), \phi_{\theta}(\mathbf{y}_1), ..., \phi_{\theta}(\mathbf{y}_r))
 \end{align}
 $$
-where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\bf{x}_1, .., \bf{x}_n)$ as source points and the $(\bf{y}_1, .., \bf{y}_r)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\bf{P}}$ as target coupling.</d-footnote>. Interestingly, the trick presented in this blog can be applied in this context thus alleviating the need to perform backpropagation through the Sinkhorn iterations.
+where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\mathbf{x}_1, .., \mathbf{x}_n)$ as source points and the $(\mathbf{y}_1, .., \mathbf{y}_r)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\mathbf{P}}$ as target coupling.</d-footnote>. Interestingly, the trick presented in this blog can be applied in this context thus alleviating the need to perform backpropagation through the Sinkhorn iterations.
 
 :pencil2: Feel free to contact me for any question or remark on this blog !
 
