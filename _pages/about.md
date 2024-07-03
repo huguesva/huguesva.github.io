@@ -2,24 +2,25 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a ENS Lyon, FRANCE
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  image: photo_profil.jpeg
+  image_circular: true # crops the image to make it circular
+  address: >
+    <p>hugues.van_assel@ens-lyon.fr</p>
 
-news: true # includes a list of news items
+news: true  # includes a list of news items
+latest_posts: false  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a PhD student in the department of Mathematics ([UMPA](http://www.umpa.ens-lyon.fr/){:target="\_blank"}) of [Ecole Normale Supérieure de Lyon](http://www.ens-lyon.fr/){:target="\_blank"} supervised by [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html){:target="\_blank"} and [Titouan Vayer](https://tvayer.github.io/){:target="\_blank"} and in collaboration with [Rémi Flamary](https://remi.flamary.com/index.fr.html){:target="\_blank"} and [Nicolas Courty](https://people.irisa.fr/Nicolas.Courty/){:target="\_blank"}.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I work in the field of **machine learning** / **data analysis**.
+In my research, I develop unsupervised learning algorithms based on **optimal transport** and **probabilistic modelling**, focusing mainly on **dimensionality reduction**.
+I am particularly interested in biological applications (cellular biology, neuroscience ...) of these methods.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Before starting my PhD, I was a student at [Ecole polytechnique](https://programmes.polytechnique.edu/cycle-ingenieur-polytechnicien/cycle-ingenieur-polytechnicien){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"} master. More informations can be found in my [CV]({{ site.url }}/assets/pdf/CV.pdf).
