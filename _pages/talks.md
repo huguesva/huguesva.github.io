@@ -7,6 +7,9 @@ nav: true
 nav_order: 1
 ---
 
+- **Revisiting Dimensionality Reduction with Optimal Transport: Within and Across Spaces** [Slides]({{ site.url }}/assets/pdf/slides/msk_pres.pdf).
+    - 10/2024: Memorial Sloan Kettering Cancer Center, New York.
+
 - **Unifying Dimensionality Reduction and Clustering with Gromov-Wasserstein**. [Slides]({{ site.url }}/assets/pdf/slides/distR_pres.pdf).
     - 06/2024: Cambridge University Machine Learning group seminar.
     - 05/2024: talk at CANUM 2024, île de Ré.
