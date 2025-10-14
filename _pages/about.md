@@ -25,6 +25,6 @@ I enjoy building and sharing open-source tools, including:
 - [stable-pretraining](https://github.com/rbalestr-lab/stable-pretraining){:target="\_blank"} : a PyTorch library for **foundation model pretraining** with real-time training monitoring.
 
 I did my PhD in the [math department](http://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](http://www.ens-lyon.fr/){:target="\_blank"} on [_Optimal Transport and Probabilistic Modeling for Dimensionality Reduction_](https://theses.hal.science/tel-04997083/document){:target="\_blank"}.
-Prior to my PhD, I was a student at [Ecole polytechnique](https://programmes.polytechnique.edu/cycle-ingenieur-polytechnicien/cycle-ingenieur-polytechnicien){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
+Prior to my PhD, I was a student at [Ecole polytechnique](https://www.polytechnique.edu/){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
 
 <br>
