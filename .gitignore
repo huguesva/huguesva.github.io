@@ -11,3 +11,19 @@ assets/libs/
 node_modules/
 vendor
 .idea
+
+# Python virtual environment
+venv/
+*.pyc
+__pycache__/
+.Python
+env/
+ENV/
+.venv
+.env
+
+# Local development files
+README_LOCAL_SETUP.md
+requirements-dev.txt
+setup_env.sh
+package-lock.json

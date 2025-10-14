@@ -253,8 +253,8 @@ plugins:
   - jekyll-email-protect
   - jekyll-feed
   - jekyll-get-json
-  - jekyll-imagemagick
-  - jekyll-jupyter-notebook
+  # - jekyll-imagemagick # Disabled: requires ImageMagick installed
+  # - jekyll-jupyter-notebook # Disabled: requires Jupyter installed
   - jekyll-link-attributes
   - jekyll-minifier
   - jekyll-paginate-v2

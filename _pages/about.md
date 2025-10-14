@@ -9,56 +9,47 @@ profile:
   image_circular: true # crops the image to make it circular
   address: /
 
-news: false  # includes a list of news items
-latest_posts: false  # includes a list of the newest posts
+news: false # includes a list of news items
+latest_posts: false # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
 I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"} and [Tommaso Biancalani](https://www.gene.com/scientists/our-scientists/tommaso-biancalani){:target="\_blank"}.
 
-My primary interests are in **representation learning**, **self-supervised learning** and **dimensionality reduction**. I develop computational methods that leverage **optimal transport** and **probabilistic modeling** to compute meaningful and robust data representations suitable for real-world applications, typically in life sciences. 
+I am interested in how machines learn rich and reliable representations of complex data. My work explores **representation learning**, **self-supervised** and **multi-modal methods**, **optimal transport**, and **dimensionality reduction**. I develop computational approaches that uncover structure in data, motivated by challenges in the life sciences.
 
-I am a strong advocate for open and accessible science through projects such as:
+I enjoy building and sharing open-source tools, including:
 
-* [TorchDR](https://github.com/TorchDR/TorchDR){:target="\_blank"} : a modular, GPU-friendly toolbox for **dimensionality reduction** (DR) that offers a unified interface for state-of-the-art DR methods.
-* [stable-ssl](https://github.com/rbalestr-lab/stable-SSL){:target="\_blank"} : a library offering essential boilerplate code for a wide range of **self-supervised learning** tasks.
+- [TorchDR](https://github.com/TorchDR/TorchDR){:target="\_blank"} : a modular, GPU-friendly toolbox for **dimensionality reduction** (DR) that offers a unified interface for state-of-the-art DR methods.
+- [stable-pretraining](https://github.com/rbalestr-lab/stable-pretraining){:target="\_blank"} : a PyTorch library for **self-supervised learning** and foundation model pretraining with real-time training monitoring.
 
-I did my PhD in the [math department](http://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](http://www.ens-lyon.fr/){:target="\_blank"} working on *Optimal Transport and Probabilistic Modeling for Dimensionality Reduction* (the manuscript is available [here](https://theses.hal.science/tel-04997083/document){:target="\_blank"}).
+I did my PhD in the [math department](http://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](http://www.ens-lyon.fr/){:target="\_blank"} on [_Optimal Transport and Probabilistic Modeling for Dimensionality Reduction_](https://theses.hal.science/tel-04997083/document){:target="\_blank"}.
 Prior to my PhD, I was a student at [Ecole polytechnique](https://programmes.polytechnique.edu/cycle-ingenieur-polytechnicien/cycle-ingenieur-polytechnicien){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
-<!-- ([CV]({{ site.url }}/assets/pdf/CV.pdf)). -->
-<!-- I am currently a visiting research fellow at [Brown University](https://www.brown.edu/){:target="\_blank"} working with [Randall Balestriero](https://vivo.brown.edu/display/rbalestr){:target="\_blank"}.  -->
 
-<!-- with [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html){:target="\_blank"} and [Titouan Vayer](https://tvayer.github.io/){:target="\_blank"}. -->
-<!-- [Rémi Flamary](https://remi.flamary.com/index.fr.html){:target="\_blank"} and [Nicolas Courty](https://people.irisa.fr/Nicolas.Courty/){:target="\_blank"}.  -->
 
 <br>
 
-Publications
-------------
-<br>
+## Selected Publications
 
-- **A Graph Matching Approach to Balanced Data Sub-Sampling for Self-Supervised Learning**  
-  Hugues Van Assel, Randall Balestriero  
-  *NeurIPS 2024, Self-Supervised Learning Workshop*  
-  [PDF (workshop)](assets/pdf/dassot_neurips_workshop.pdf), [Poster (workshop)](assets/pdf/posters/DASSOT_poster.pdf)
+See full list on [Google Scholar](https://scholar.google.com/citations?user=9Lf9wq8AAAAJ&hl=en&oi=ao){:target="\_blank"}.
 
-- **Distributional Reduction: Unifying Dimensionality Reduction and Clustering with Gromov-Wasserstein**  
-  Hugues Van Assel, Cédric Vincent-Cuaz, Nicolas Courty, Rémi Flamary, Pascal Frossard, Titouan Vayer  
-  *NeurIPS 2023, Optimal Transport for Machine Learning Workshop*  
-  [PDF (long version)](assets/pdf/DistR.pdf), [PDF (workshop)](assets/pdf/GWDR.pdf), [Poster (workshop)](assets/pdf/posters/GWDR.pdf)
+- **Joint Embedding vs Reconstruction: Provable Benefits of Latent Space Prediction for Self-Supervised Learning**
+  Hugues Van Assel, Mark Ibrahim, Tommaso Biancalani, Aviv Regev, Randall Balestriero
+  _NeurIPS 2025 Spotlight_
+  [arXiv](https://arxiv.org/abs/2505.12477)
 
-- **Optimal Transport with Adaptive Regularisation**  
-  Hugues Van Assel, Titouan Vayer, Rémi Flamary, Nicolas Courty  
-  *NeurIPS 2023, Optimal Transport for Machine Learning Workshop*  
-  [PDF](assets/pdf/otari_workshop_paper.pdf), [Poster](assets/pdf/posters/OTARI.pdf)
+- **Distributional Reduction: Unifying Dimensionality Reduction and Clustering with Gromov-Wasserstein**
+  Hugues Van Assel, Cédric Vincent-Cuaz, Nicolas Courty, Rémi Flamary, Pascal Frossard, Titouan Vayer
+  _Transactions on Machine Learning Research_
+  [arXiv](https://arxiv.org/pdf/2402.02239)
 
-- **SNEkhorn: Dimension Reduction with Symmetric Entropic Affinities**  
-  Hugues Van Assel, Titouan Vayer, Rémi Flamary, Nicolas Courty  
-  *NeurIPS 2023*  
-  [PDF](assets/pdf/final_snekhorn.pdf), [Poster](assets/pdf/posters/SNEkhorn.pdf)
+- **SNEkhorn: Dimension Reduction with Symmetric Entropic Affinities**
+  Hugues Van Assel, Titouan Vayer, Rémi Flamary, Nicolas Courty
+  _NeurIPS 2023_
+  [arXiv](https://arxiv.org/pdf/2305.13797), [Poster](assets/pdf/posters/SNEkhorn.pdf)
 
-- **A Probabilistic Graph Coupling View of Dimension Reduction**  
-  Hugues Van Assel, Thibault Espinasse, Julien Chiquet, Franck Picard  
-  *NeurIPS 2022*  
-  [PDF](assets/pdf/graph_coupling.pdf), [Poster](assets/pdf/posters/Poster_Neurips2022.pdf)
+- **A Probabilistic Graph Coupling View of Dimension Reduction**
+  Hugues Van Assel, Thibault Espinasse, Julien Chiquet, Franck Picard
+  _NeurIPS 2022_
+  [arXiv](https://arxiv.org/pdf/2201.13053), [Poster](assets/pdf/posters/Poster_Neurips2022.pdf)

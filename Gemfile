@@ -6,8 +6,8 @@ group :jekyll_plugins do
     gem 'jekyll-email-protect'
     gem 'jekyll-feed'
     gem 'jekyll-get-json'
-    gem 'jekyll-imagemagick'
-    gem 'jekyll-jupyter-notebook'
+    # gem 'jekyll-imagemagick' # Requires ImageMagick installed
+    # gem 'jekyll-jupyter-notebook' # Requires Jupyter installed
     gem 'jekyll-link-attributes'
     gem 'jekyll-minifier'
     gem 'jekyll-paginate-v2'
@@ -18,7 +18,7 @@ group :jekyll_plugins do
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
-    gem 'mini_racer'
+    # gem 'mini_racer' # Commented out due to build issues on macOS
     gem 'unicode_utils'
     gem 'webrick'
 end
