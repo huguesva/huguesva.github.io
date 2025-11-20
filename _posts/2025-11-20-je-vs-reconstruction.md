@@ -13,8 +13,6 @@ authors:
     url: "https://huguesva.github.io/"
     affiliations:
       name: Genentech & Brown University
-
-bibliography: 2025-11-20-distill.bib
 ---
 
 <script type="text/javascript" async
