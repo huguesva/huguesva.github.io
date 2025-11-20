@@ -70,9 +70,11 @@ where $$f_{\mathbf{E}}$$ and $$f_{\mathbf{D}}$$ are encoder and decoder function
 
 **Theorem 1 (Reconstruction-Based SSL).**
 Let $$\overline{\mathbf{x}}_i := \mathbb{E}_{\tau \sim \mathcal{T}}[\tau(\mathbf{x}_i)]$$ denote the expected augmented sample and $$\overline{\mathbf{X}} := (\overline{\mathbf{x}}_1, \dots, \overline{\mathbf{x}}_n)^\top$$. Define the covariance of augmented samples:
+
 $$
 \mathbf{\Sigma} := \frac{1}{n} \sum_{i} \mathbb{E}_{\tau \sim \mathcal{T}} \left[ \tau(\mathbf{x}_i) \tau(\mathbf{x}_i)^\top\right] - \mathbb{E}_{\tau \sim \mathcal{T}} \left[\tau(\mathbf{x}_i) \right] \mathbb{E}_{\tau \sim \mathcal{T}} \left[\tau(\mathbf{x}_i) \right]^\top
 $$
+
 Assume that $$\frac{1}{n} \overline{\mathbf{X}}^\top \overline{\mathbf{X}} + \mathbf{\Sigma}$$ is positive definite. Consider the singular value decomposition:
 
 $$
