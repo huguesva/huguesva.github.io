@@ -3,7 +3,7 @@ layout: page
 permalink: /teaching/
 title: teaching
 description: Materials for courses I teach.
-nav: false  # Commented out - past teaching from PhD
+nav: false # Commented out - past teaching from PhD
 nav_order: 5
 ---
 
