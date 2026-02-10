@@ -9,15 +9,17 @@ profile:
   image_circular: true # crops the image to make it circular
   address: /
 
-news: true # includes a list of news items
+news: false # includes a list of news items
 latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"} and [Tommaso Biancalani](https://www.gene.com/scientists/our-scientists/tommaso-biancalani){:target="\_blank"}.
+I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"}.
 
-I am interested in how machines learn meaningful representations of complex data. My work explores **representation learning**, **self-supervised** and **multi-modal methods**, **optimal transport**, and **dimensionality reduction**. I develop computational approaches that uncover structure in data, motivated by challenges in the life sciences.
+I study the mathematical foundations of **representation learning**: how to extract compact, meaningful structure from high-dimensional data, using tools from **probabilistic modeling** and **optimal transport**.
+
+Currently, I am interested in **multi-modal and foundation models for high-throughput genomics data**, and **virtual screening and data selection for drug discovery**.
 
 **Open-Source.** I enjoy building and sharing open-source tools:
 
@@ -101,7 +103,13 @@ I am interested in how machines learn meaningful representations of complex data
 </div>
 
 **Background.** I did my PhD in the [math department](https://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](https://www.ens-lyon.fr/){:target="\_blank"} on [_Optimal Transport and Probabilistic Modeling for Dimensionality Reduction_](https://theses.hal.science/tel-04997083/document){:target="\_blank"}.
-During my PhD, I visited the [GalilAI group](https://github.com/rbalestr-lab){:target="\_blank"} at Brown University to work on self-supervised learning.
+During my PhD, I visited the [GalilAI group](https://galilai-group.github.io/){:target="\_blank"} at Brown University to work on self-supervised learning.
 Prior to my PhD, I was a student at [Ecole polytechnique](https://www.polytechnique.edu/){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
+
+<div style="border: 2px solid var(--global-theme-color, #2698BA); border-radius: 8px; padding: 1em 1.2em; margin: 1em 0; background: linear-gradient(135deg, #eef7fa 0%, #f0f9f4 100%);">
+<strong style="font-size: 1.1em;">We're hiring!</strong> Together with <a href="https://www.linkedin.com/in/edwarddebrouwer/" target="_blank">Edward De Brouwer</a>, I am looking for a <strong>summer 2026 intern</strong> to work on <strong>Bayesian optimization with LLMs</strong> in the Regev Lab at Genentech, South San Francisco.
+<br><br>
+<a href="https://roche.wd3.myworkdayjobs.com/ROG-A2O-GENE/job/South-San-Francisco/XMLNAME-2026-Summer-Intern---Regev-Lab---Bayesian-Optimization-with-LLMs_202601-102359" target="_blank" style="font-weight: 600; color: var(--global-theme-color, #2698BA);">Apply here &rarr;</a>&ensp; Feel free to reach out if you have questions. Come join us!
+</div>
 
 <br>
