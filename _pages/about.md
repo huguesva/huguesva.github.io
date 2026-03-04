@@ -15,11 +15,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"}.
-
-I study the mathematical foundations of **representation learning**: how to extract compact, meaningful structure from high-dimensional data, using tools from **probabilistic modeling** and **optimal transport**.
-
-Currently, I am interested in **multi-modal and foundation models for high-throughput genomics data**, and **virtual screening and data selection for drug discovery**.
+I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"}, working on machine learning for science and drug discovery. My research interests include representation learning, multi-modal learning, dimensionality reduction and optimal transport.
 
 **Open-Source.** I enjoy building and sharing open-source tools:
 
@@ -41,12 +37,10 @@ Currently, I am interested in **multi-modal and foundation models for high-throu
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
-.oss-header {
-  margin-bottom: 0.5em;
-}
 .oss-title {
   font-weight: 600;
   font-size: 1.05em;
+  margin-bottom: 0.5em;
 }
 .oss-title a {
   color: var(--global-theme-color, #2698BA);
@@ -60,56 +54,21 @@ Currently, I am interested in **multi-modal and foundation models for high-throu
   color: #555;
   line-height: 1.5;
 }
-.oss-tags {
-  margin-top: 0.6em;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4em;
-}
-.oss-tag {
-  font-size: 0.75em;
-  padding: 0.2em 0.6em;
-  border-radius: 12px;
-  background: var(--global-theme-color, #2698BA);
-  color: white;
-  opacity: 0.85;
-}
 </style>
 
 <div class="oss-grid">
   <div class="oss-card">
-    <div class="oss-header">
-      <span class="oss-title"><a href="https://github.com/TorchDR/TorchDR" target="_blank">TorchDR</a></span>
-    </div>
+    <div class="oss-title"><a href="https://github.com/TorchDR/TorchDR" target="_blank">TorchDR</a></div>
     <div class="oss-desc">PyTorch toolbox for <strong>dimensionality reduction</strong> with state-of-the-art speed on single and multi-GPU.</div>
-    <div class="oss-tags">
-      <span class="oss-tag">PyTorch</span>
-      <span class="oss-tag">data-viz</span>
-      <span class="oss-tag">multi-GPU</span>
-      <span class="oss-tag">speed</span>
-    </div>
   </div>
   <div class="oss-card">
-    <div class="oss-header">
-      <span class="oss-title"><a href="https://github.com/rbalestr-lab/stable-pretraining" target="_blank">stable-pretraining</a></span>
-    </div>
+    <div class="oss-title"><a href="https://github.com/rbalestr-lab/stable-pretraining" target="_blank">stable-pretraining</a></div>
     <div class="oss-desc">PyTorch library for <strong>foundation model pretraining</strong> with real-time training monitoring.</div>
-    <div class="oss-tags">
-      <span class="oss-tag">PyTorch</span>
-      <span class="oss-tag">SSL</span>
-      <span class="oss-tag">Foundation Models</span>
-    </div>
   </div>
 </div>
 
-**Background.** I did my PhD in the [math department](https://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](https://www.ens-lyon.fr/){:target="\_blank"} on [_Optimal Transport and Probabilistic Modeling for Dimensionality Reduction_](https://theses.hal.science/tel-04997083/document){:target="\_blank"}.
+**Background.** I did my [PhD](https://theses.hal.science/tel-04997083/document){:target="\_blank"} in the [math department](https://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](https://www.ens-lyon.fr/){:target="\_blank"}, supervised by [Titouan Vayer](https://tvayer.github.io/){:target="\_blank"} and [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html){:target="\_blank"}.
 During my PhD, I visited the [GalilAI group](https://galilai-group.github.io/){:target="\_blank"} at Brown University to work on self-supervised learning.
 Prior to my PhD, I was a student at [Ecole polytechnique](https://www.polytechnique.edu/){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
-
-<div style="border: 2px solid var(--global-theme-color, #2698BA); border-radius: 8px; padding: 1em 1.2em; margin: 1em 0; background: linear-gradient(135deg, #eef7fa 0%, #f0f9f4 100%);">
-<strong style="font-size: 1.1em;">We're hiring!</strong> Together with <a href="https://www.linkedin.com/in/edwarddebrouwer/" target="_blank">Edward De Brouwer</a>, I am looking for a <strong>summer 2026 intern</strong> to work on <strong>Bayesian optimization with LLMs</strong> in the Regev Lab at Genentech, South San Francisco.
-<br><br>
-<a href="https://roche.wd3.myworkdayjobs.com/ROG-A2O-GENE/job/South-San-Francisco/XMLNAME-2026-Summer-Intern---Regev-Lab---Bayesian-Optimization-with-LLMs_202601-102359" target="_blank" style="font-weight: 600; color: var(--global-theme-color, #2698BA);">Apply here &rarr;</a>&ensp; Feel free to reach out if you have questions. Come join us!
-</div>
 
 <br>
