@@ -63,7 +63,7 @@ $$
 
 where $$f_{\mathbf{E}}$$ and $$f_{\mathbf{D}}$$ are encoder and decoder functions. Each data sample is augmented, encoded, and decoded, with the objective to minimize reconstruction error. This methodology is analogous to Denoising Auto-Encoders and Masked Auto-Encoders (MAE).
 
-{% details Closed-Form Solution for Reconstruction %}
+#### Closed-Form Solution for Reconstruction
 
 **Theorem 1 (Reconstruction-Based SSL).**
 Let $$\overline{\mathbf{x}}_i := \mathbb{E}_{\tau \sim \mathcal{T}}[\tau(\mathbf{x}_i)]$$ denote the expected augmented sample and $$\overline{\mathbf{X}} := (\overline{\mathbf{x}}_1, \dots, \overline{\mathbf{x}}_n)^\top$$. Define the covariance of augmented samples:
@@ -92,8 +92,6 @@ $$
 
 where $$\mathbf{T}$$ is any invertible matrix in $$\mathbb{R}^{k \times k}$$, $$\mathbf{P}_k$$ and $$\mathbf{R}_k$$ are the first $$k$$ columns of $$\mathbf{P}$$ and $$\mathbf{R}$$, and $$\mathbf{\Phi}_k = \mathrm{diag}(\phi_1, \dots, \phi_k)$$.
 
-{% enddetails %}
-
 ### Problem 2: Joint-Embedding-Based SSL
 
 The joint-embedding problem is formulated as:
@@ -109,7 +107,7 @@ $$
 
 where $$f_{\mathbf{W}}$$ is the SSL model. The objective represents the invariance term ensuring consistency between augmented views, while the constraint enforces orthonormality, preventing collapse. This formulation closely resembles methods like SimCLR, VICReg, BYOL, and DINO.
 
-{% details Closed-Form Solution for Joint-Embedding %}
+#### Closed-Form Solution for Joint-Embedding
 
 **Theorem 2 (Joint-Embedding-Based SSL).**
 Let $$\mathbf{S} := \frac{1}{n} \sum_{i} \mathbb{E}_{\tau \sim \mathcal{T}} \left[ \tau(\mathbf{x}_i) \tau(\mathbf{x}_i)^\top\right]$$ and $$\mathbf{G} := \frac{1}{n} \sum_{i} \mathbb{E}_{\tau \sim \mathcal{T}} \left[ \tau(\mathbf{x}_i)\right] \mathbb{E}_{\tau \sim \mathcal{T}} \left[ \tau(\mathbf{x}_i)\right]^\top$$.
@@ -133,8 +131,6 @@ $$
 $$
 
 where $$\mathbf{Q}_k = (\mathbf{q}_1, \dots, \mathbf{q}_k)$$ and $$\mathbf{U}$$ is any orthogonal matrix of size $$k \times k$$.
-
-{% enddetails %}
 
 These closed-form solutions are directly parameterized by the augmentation structure, enabling us to analyze precisely how augmentations impact learned representations.
 

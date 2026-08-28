@@ -108,10 +108,18 @@
 }
 
 .research-callout {
+  grid-column: text;
+  justify-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   margin: 1.25rem 0;
   padding: 0.9rem 1rem;
   border-left: 0.25rem solid var(--global-theme-color);
   border-radius: 0.25rem;
+  color: var(--global-text-color);
+  font-size: inherit;
+  line-height: inherit;
   background: color-mix(in srgb, var(--global-theme-color) 7%, var(--global-bg-color));
 }
 
@@ -135,6 +143,18 @@
 .research-callout--takeaway {
   margin: 2rem 0;
   border-left-color: #1677c8;
+}
+
+// Keep long display equations swipeable on small screens without showing a
+// permanent browser scrollbar beneath otherwise clean mathematical notation.
+d-article mjx-container[jax="CHTML"][display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+d-article mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 640px) {
