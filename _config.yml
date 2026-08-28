@@ -258,9 +258,6 @@ plugins:
   - jekyll-cache-bust
   - jekyll-email-protect
   - jekyll-feed
-  - jekyll-get-json
-  - jekyll-imagemagick
-  - jekyll-jupyter-notebook
   - jekyll-link-attributes
   - jekyll-minifier
   - jekyll-paginate-v2
@@ -268,32 +265,23 @@ plugins:
   - jekyll/scholar
   - jekyll-sitemap
   - jekyll-socials
-  - jekyll-tabs
   - jekyll-terser
   - jekyll-toc
-  - jekyll-twitter-plugin
   - jemoji
 
   # al-folio plugins
   - al_folio_core
   - al_icons
-  - al_folio_cv
   - al_folio_distill
   - al_folio_upgrade
-  - al_folio_bootstrap_compat
   - al_cookie
   - al_analytics
   - al_citations
-  - al_ext_posts
   - al_img_tools
   - al_search
-  - al_charts
   - al_math
   - al_comments
-  - al_newsletter
   - al_email_protect
-  - al_marimo
-  - al_rtl
 
 # Sitemap settings
 defaults:
