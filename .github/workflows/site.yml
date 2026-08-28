@@ -58,7 +58,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           fail: true
-          args: --offline --remap '_site(/?.*)/assets/(.*) _site/assets/$2' --verbose --no-progress '_site/**/*.html'
+          args: --offline --root-dir _site --verbose --no-progress '_site/**/*.html'
 
       - name: Upload generated site
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
