@@ -92,16 +92,3 @@ nav_order: 2
     </ul>
   </div>
 </article>
-
-## Other talks
-
-<article class="site-card talk-resources">
-  <h3>Miscellaneous and popularization talks</h3>
-  <p class="resource-links">
-    <a href="{{ '/assets/pdf/slides/HD_GGM_network_pres.pdf' | relative_url }}">High-dimensional graphical models</a>
-    <a href="{{ '/assets/pdf/slides/KL_presentation.pdf' | relative_url }}">Kullback–Leibler divergence</a>
-    <a href="{{ '/assets/pdf/slides/pres_convexity.pdf' | relative_url }}">Convexity</a>
-    <a href="{{ '/assets/pdf/slides/HD_data.pdf' | relative_url }}">High-dimensional data</a>
-  </p>
-  <p class="talk-venues"><time datetime="2021-05">May 2021</time> · SingleStatOmics meeting</p>
-</article>

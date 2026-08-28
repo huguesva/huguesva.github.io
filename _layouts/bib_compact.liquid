@@ -1,0 +1,41 @@
+---
+---
+{% assign publication_url = null %}
+{% if entry.html %}
+  {% assign publication_url = entry.html %}
+{% elsif entry.doi %}
+  {% assign publication_url = entry.doi | prepend: 'https://doi.org/' %}
+{% elsif entry.arxiv %}
+  {% assign publication_url = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+{% endif %}
+
+<p id="{{ entry.key }}" class="compact-publication">
+  {% if publication_url %}
+    <a
+      class="compact-publication-title"
+      href="{% if publication_url contains '://' %}{{ publication_url }}{% else %}{{ publication_url | relative_url }}{% endif %}"
+    >
+      {{- entry.title -}}
+    </a>
+  {% else %}
+    <span class="compact-publication-title">{{ entry.title }}</span>
+  {% endif %}
+  <span class="compact-publication-separator" aria-hidden="true"> — </span>
+  <span class="compact-publication-authors">
+    {%- assign author_count = entry.author_array | size -%}
+    {%- for author in entry.author_array -%}
+      {%- unless forloop.first -%}
+        {%- if forloop.last -%}
+          {%- if author_count == 2 %} and {% else %}, and {% endif -%}
+        {%- else -%}
+          ,
+        {% endif -%}
+      {%- endunless -%}
+      {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' | strip -%}
+      {{ author.first }}
+      {{ author_last_name }}
+    {%- endfor -%}
+  </span>
+  <span class="compact-publication-separator" aria-hidden="true"> · </span>
+  <em class="compact-publication-venue">{{ entry.venue }}</em>
+</p>
