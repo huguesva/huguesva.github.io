@@ -16,6 +16,8 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+
 <div class="post">
 
 {% assign blog_name_size = site.blog_name | size %}
@@ -179,7 +181,7 @@ pagination:
 </div>
 
   <div class="col-sm-3">
-    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image">
+    <img class="card-img blog-thumbnail" src="{{ post.thumbnail | relative_url }}" alt="{{ post.thumbnail_alt | default: post.title | escape }}">
   </div>
 </div>
 {% endif %}

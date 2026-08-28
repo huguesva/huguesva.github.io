@@ -3,7 +3,6 @@ layout: distill
 title: "Joint-Embedding vs Reconstruction: When Should You Use Each?"
 description: A theoretical analysis revealing when joint-embedding methods outperform reconstruction-based SSL, and vice versa.
 tags: ["SSL", "Theory", "NeurIPS"]
-giscus_comments: false
 date: 2025-11-20
 featured: true
 citation: true
@@ -17,9 +16,7 @@ authors:
 bibliography: 2025-11-20-je-vs-reconstruction.bib
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
 This blog post presents the key findings from our NeurIPS 2025 paper on comparing two fundamental paradigms in Self-Supervised Learning (SSL): **reconstruction-based** and **joint-embedding** methods.
 
@@ -41,14 +38,14 @@ In **vision**, however, variance-explaining features often emphasize aspects tha
 
 Unlike reconstruction-based approaches, joint-embedding methods do not predict in the input space and are therefore **less biased toward capturing high-variance components** of the signal. Empirically, joint-embedding frameworks have shown strong performance across domains where the input signal is high-dimensional and semantically diffuse, including histopathology, Earth observation, and video representation learning.
 
-<div style="text-align: center; margin: 2em 0;">
-  <img src="/assets/img/blog-je-vs-rc/schema_je_vs_reconstruction.png" alt="SSL paradigms comparison" style="width: 95%; max-width: 900px;">
-  <p style="font-size: 0.9em; color: #666; margin-top: 0.5em;">
+<figure class="research-figure-panel">
+  <img src="/assets/img/blog-je-vs-rc/schema_je_vs_reconstruction.png" alt="Reconstruction predicts an original input from one augmented view, while joint-embedding aligns representations of two augmented views">
+  <figcaption>
     <strong>Figure 1:</strong> Two self-supervised learning paradigms.
     <em>Left:</em> Reconstruction approach trains an encoder $f_{\mathbf{E}}$ and decoder $f_{\mathbf{D}}$ to recover $\mathbf{x}$ from augmented view $\tau(\mathbf{x})$.
     <em>Right:</em> Joint-embedding approach maps two independent augmentations $\tau_1(\mathbf{x})$ and $\tau_2(\mathbf{x})$ to nearby representations via $f_{\mathbf{W}}$.
-  </p>
-</div>
+  </figcaption>
+</figure>
 
 ## The Two Main Problems and Their Solutions
 
@@ -151,23 +148,23 @@ We introduce a parameter $$\alpha \geq 0$$ that controls the **alignment** betwe
 
 Unlike supervised learning, **both SSL paradigms require aligned augmentations to achieve optimal performance**, even with infinite samples. Simply increasing the sample size cannot overcome misalignment between augmentations and noise.
 
-<div style="background-color: #f5f5f5; border-left: 4px solid #9C27B0; padding: 0.8em; margin: 1em 0;">
+<aside class="research-callout research-callout--theory">
 <strong>Proposition (Supervised Learning).</strong>
 Supervised models achieve optimal performance either when:
-<ul style="margin: 0.3em 0; padding-left: 1.5em;">
+<ul>
 <li>Augmentations are well aligned with noise ($\alpha$ large), or</li>
 <li>Sample size is large ($n \to \infty$), <strong>regardless of alignment</strong>.</li>
 </ul>
-</div>
+</aside>
 
-<div style="background-color: #f5f5f5; border-left: 4px solid #9C27B0; padding: 0.8em; margin: 1em 0;">
+<aside class="research-callout research-callout--theory">
 <strong>Proposition (Self-Supervised Learning).</strong>
 SSL models achieve optimal performance when:
-<ul style="margin: 0.3em 0; padding-left: 1.5em;">
+<ul>
 <li>Augmentations are well aligned with noise ($\alpha$ large), or</li>
 <li>Sample size is large ($n \to \infty$) <strong>AND</strong> alignment satisfies $\alpha > \alpha_{\text{threshold}}$.</li>
 </ul>
-</div>
+</aside>
 
 This critical difference underscores that **carefully designed augmentations are essential in SSL**.
 
@@ -182,17 +179,17 @@ These thresholds depend on noise magnitude, augmentation quality, and data chara
 
 Our analysis reveals:
 
-<div style="background-color: #f5f5f5; border-left: 4px solid #4CAF50; padding: 0.8em; margin: 1em 0;">
+<aside class="research-callout research-callout--reconstruction">
 <strong>Low-Magnitude Irrelevant Features:</strong>
 When noise/irrelevant features have small variance, reconstruction requires less alignment: $\alpha_{\text{RC}} < \alpha_{\text{JE}}$
 <br><strong>→ Reconstruction is preferable</strong>
-</div>
+</aside>
 
-<div style="background-color: #f5f5f5; border-left: 4px solid #FF5722; padding: 0.8em; margin: 1em 0;">
+<aside class="research-callout research-callout--embedding">
 <strong>High-Magnitude Irrelevant Features:</strong>
 When noise/irrelevant features have large variance, joint-embedding requires less alignment: $\alpha_{\text{JE}} < \alpha_{\text{RC}}$
 <br><strong>→ Joint-embedding is preferable</strong>
-</div>
+</aside>
 
 ### Interpretation
 
@@ -200,26 +197,26 @@ When noise/irrelevant features have large variance, joint-embedding requires les
 
 Since data from physical world measurements (images, sounds, sensor recordings) often contain high-magnitude irrelevant features (backgrounds, experimental artifacts), **joint-embedding is typically more robust in practice**. Our experiments on ImageNet-1k confirm this: joint-embedding methods like DINO and BYOL are considerably more robust to severe data corruption than reconstruction-based methods like MAE.
 
-<div style="text-align: center; margin: 2em 0;">
-  <img src="/assets/img/blog-je-vs-rc/mnist_small.png" alt="Linear models validation" style="width: 100%; max-width: 1000px;">
-  <p style="font-size: 0.9em; color: #666; margin-top: 0.5em;">
+<figure class="research-figure-panel">
+  <img src="/assets/img/blog-je-vs-rc/mnist_small.png" alt="Three plots comparing supervised, joint-embedding, and reconstruction performance across sample sizes and augmentation alignments">
+  <figcaption>
     <strong>Figure 2:</strong> Validation on linear models with MNIST corrupted by synthetic Gaussian noise.
     Each subplot shows how performance varies with sample size $n$ (x-axis) and augmentation alignment $\alpha$ (different lines).
     <em>Left:</em> Supervised learning achieves optimal performance with either large $n$ or large $\alpha$, regardless of noise magnitude.
     <em>Middle:</em> Joint-embedding requires minimal alignment but remains robust even with strong noise.
     <em>Right:</em> Reconstruction is robust to augmentation choice under weak noise but degrades under strong noise.
-  </p>
-</div>
+  </figcaption>
+</figure>
 
 ## Practical Takeaway
 
-<div style="background-color: #e3f2fd; border-left: 4px solid #2196F3; padding: 1em; margin: 2em 0;">
+<aside class="research-callout research-callout--takeaway">
 <strong>Key Recommendation:</strong>
-<ul style="margin: 0.5em 0;">
+<ul>
 <li><strong>Use Reconstruction</strong> when irrelevant features have low magnitude and you have limited knowledge about effective augmentations.</li>
 <li><strong>Use Joint-Embedding</strong> when irrelevant features are non-negligible (common in physical world measurements) or when effective augmentations can be identified.</li>
 </ul>
-</div>
+</aside>
 
 For more technical details, proofs, and comprehensive experimental results, please refer to our [full paper](https://arxiv.org/abs/2505.12477).
 

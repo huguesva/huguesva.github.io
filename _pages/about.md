@@ -14,10 +14,14 @@ selected_papers: true
 social: true
 
 announcements:
-  enabled: false
+  enabled: true
+  scrollable: false
+  limit: 3
 
 latest_posts:
-  enabled: false
+  enabled: true
+  scrollable: false
+  limit: 2
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">

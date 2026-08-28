@@ -30,13 +30,7 @@ GEM
       activesupport (>= 6.0, < 8.0)
       jekyll (>= 3.9, < 5.0)
       nokogiri (>= 1.13, < 2.0)
-    al_comments (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
     al_cookie (1.0.1)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_email_protect (1.0.1)
       jekyll (>= 3.9, < 5.0)
       liquid (>= 4.0, < 6.0)
     al_folio_core (1.0.15)
@@ -305,9 +299,7 @@ PLATFORMS
 DEPENDENCIES
   al_analytics (= 1.0.2)
   al_citations (= 1.0.1)
-  al_comments (= 1.0.0)
   al_cookie (= 1.0.1)
-  al_email_protect (= 1.0.1)
   al_folio_core (= 1.0.15)
   al_folio_distill (= 1.0.3)
   al_folio_upgrade (= 1.0.3)
@@ -340,9 +332,7 @@ CHECKSUMS
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   al_analytics (1.0.2) sha256=0c8e0c029b1a28401d21ed9b56033036697e61722a0d8867f33c30010ad738d6
   al_citations (1.0.1) sha256=308cfd4cd73c8dc6d24c0214f424b61606b3a393bdb899394fce80dd647cba59
-  al_comments (1.0.0) sha256=1da87a29b55e4d9fd62d380200af9671f10ae4a84e3259828588498d8f3210e5
   al_cookie (1.0.1) sha256=2420241497b1fb165311ba1c9e059a9025586925b65dbba429aee225bd91a67f
-  al_email_protect (1.0.1) sha256=04d1e9b19a47d26e6fa238baba197165653002c788b60525fef093ee1a3989e5
   al_folio_core (1.0.15) sha256=eee5d0afefab5d3e8747b615890d760ed0ab01a1210991118709c4e969ad1326
   al_folio_distill (1.0.3) sha256=3feb669dd669effec127e1be5385158c5f98062c510980b5c9c802227ec2c247
   al_folio_upgrade (1.0.3) sha256=434ffddb27705852eae0bcaa01a8d007e0ef65472a989d1a33ae759f910f4709
