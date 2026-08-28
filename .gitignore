@@ -1,29 +1,26 @@
 _site
 .bundle
-.sass-cache
+.DS_store
+.idea
 .jekyll-cache
 .jekyll-metadata
-.DS_store
 .ruby-version
+.sass-cache
 .tweet-cache
-Gemfile.lock
-assets/libs/
-node_modules/
-vendor
-.idea
-
-# Python virtual environment
-venv/
-*.pyc
-__pycache__/
-.Python
-env/
-ENV/
 .venv
-.env
-
-# Local development files
-README_LOCAL_SETUP.md
-requirements-dev.txt
+venv/
 setup_env.sh
-package-lock.json
+requirements-dev.txt
+.claude/
+.env
+assets/libs/
+assets/rendercv/rendercv_output/*.typ
+al-folio-upgrade-report.md
+node_modules/
+output/playwright/
+test-results/
+vendor
+
+# Python bytecode from bin/ helper scripts
+__pycache__/
+*.pyc

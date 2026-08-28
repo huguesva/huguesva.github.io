@@ -1,0 +1,86 @@
+---
+---
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.site-card,
+.talk-card {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.75rem;
+  background: var(--global-bg-color);
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 6%);
+}
+
+.site-card {
+  padding: 1rem 1.1rem;
+}
+
+.site-card h3,
+.talk-card h3 {
+  margin-top: 0;
+}
+
+.site-card p:last-child,
+.talk-card p:last-child,
+.talk-card ul:last-child {
+  margin-bottom: 0;
+}
+
+.talk-card {
+  display: grid;
+  grid-template-columns: minmax(9rem, 12rem) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+}
+
+.talk-card > img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resource-links a {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.resource-links a:hover,
+.resource-links a:focus-visible {
+  color: var(--global-bg-color);
+  background: var(--global-theme-color);
+}
+
+.talk-venues {
+  color: var(--global-text-color-light);
+}
+
+.talk-resources {
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .talk-card {
+    grid-template-columns: 1fr;
+  }
+
+  .talk-card > img {
+    max-width: 18rem;
+  }
+}
