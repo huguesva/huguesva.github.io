@@ -2,73 +2,42 @@
 layout: about
 title: about
 permalink: /
-subtitle: Postdoctoral Fellow at Genentech, South San Francisco CA
+subtitle: Postdoctoral Fellow at Genentech · South San Francisco, CA
+
 profile:
   align: right
-  image: photo_profil.jpeg
-  image_circular: true # crops the image to make it circular
-  address: /
+  image: hugues-van-assel.jpeg
+  image_circular: true
+  more_info:
 
-news: false # includes a list of news items
-latest_posts: false # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
+
+latest_posts:
+  enabled: true
+  scrollable: false
+  limit: 2
 ---
 
-I am a postdoc at [Genentech](https://www.gene.com/){:target="\_blank"} with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev){:target="\_blank"}, working on machine learning for science and drug discovery. My research interests include representation learning, multi-modal learning, dimensionality reduction and optimal transport.
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
-**Open-Source.** I enjoy building and sharing open-source tools:
+I am a postdoctoral fellow at [Genentech](https://www.gene.com/) with [Aviv Regev](https://www.roche.com/about/leadership/aviv-regev), working on machine learning for science and drug discovery. My research interests include representation learning, multimodal learning, dimensionality reduction, and optimal transport.
 
-<style>
-.oss-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1em;
-  margin: 1em 0;
-}
-.oss-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1em;
-  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.oss-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
-}
-.oss-title {
-  font-weight: 600;
-  font-size: 1.05em;
-  margin-bottom: 0.5em;
-}
-.oss-title a {
-  color: var(--global-theme-color, #2698BA);
-  text-decoration: none;
-}
-.oss-title a:hover {
-  text-decoration: underline;
-}
-.oss-desc {
-  font-size: 0.92em;
-  color: #555;
-  line-height: 1.5;
-}
-</style>
+## Open source
 
-<div class="oss-grid">
-  <div class="oss-card">
-    <div class="oss-title"><a href="https://github.com/TorchDR/TorchDR" target="_blank">TorchDR</a></div>
-    <div class="oss-desc">PyTorch toolbox for <strong>dimensionality reduction</strong> with state-of-the-art speed on single and multi-GPU.</div>
-  </div>
-  <div class="oss-card">
-    <div class="oss-title"><a href="https://github.com/rbalestr-lab/stable-pretraining" target="_blank">stable-pretraining</a></div>
-    <div class="oss-desc">PyTorch library for <strong>foundation model pretraining</strong> with real-time training monitoring.</div>
-  </div>
+I enjoy building and sharing research software.
+
+<div class="software-grid">
+  <article class="site-card">
+    <h3><a href="https://github.com/TorchDR/TorchDR">TorchDR</a></h3>
+    <p>A PyTorch toolbox for dimensionality reduction with state-of-the-art performance on single and multiple GPUs.</p>
+  </article>
+  <article class="site-card">
+    <h3><a href="https://github.com/rbalestr-lab/stable-pretraining">stable-pretraining</a></h3>
+    <p>A PyTorch library for foundation-model pretraining with real-time training monitoring.</p>
+  </article>
 </div>
 
-**Background.** I did my [PhD](https://theses.hal.science/tel-04997083/document){:target="\_blank"} in the [math department](https://www.umpa.ens-lyon.fr/){:target="\_blank"} of [ENS Lyon](https://www.ens-lyon.fr/){:target="\_blank"}, supervised by [Titouan Vayer](https://tvayer.github.io/){:target="\_blank"} and [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html){:target="\_blank"}.
-During my PhD, I visited the [GalilAI group](https://galilai-group.github.io/){:target="\_blank"} at Brown University to work on self-supervised learning.
-Prior to my PhD, I was a student at [Ecole polytechnique](https://www.polytechnique.edu/){:target="\_blank"} and [MVA](https://www.master-mva.com/){:target="\_blank"}.
+## Background
 
-<br>
+I completed my [PhD](https://theses.hal.science/tel-04997083/document) in the [mathematics department](https://www.umpa.ens-lyon.fr/) at [ENS Lyon](https://www.ens-lyon.fr/), supervised by [Titouan Vayer](https://tvayer.github.io/) and [Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index.html). During my PhD, I visited the [GalilAI group](https://galilai-group.github.io/) at Brown University to work on self-supervised learning. Before my PhD, I studied at [École Polytechnique](https://www.polytechnique.edu/) and in the [MVA master's program](https://www.master-mva.com/).

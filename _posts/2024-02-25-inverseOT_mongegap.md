@@ -3,7 +3,6 @@ layout: distill
 title: Inverse optimal transport does not require unrolling
 description: A note on the equivalence between inverse OT and minimizing the Monge gap.
 tags: ["OT", "DR"]
-giscus_comments: false
 date: 2024-02-25
 featured: false
 citation: true
@@ -17,9 +16,7 @@ authors:
 bibliography: 2024-02-25-distill.bib
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
 This blog is about an elegant and practical reformulation of inverse Optimal Transport (OT) that enables efficient computations. It is based on a derivation found in <d-cite key="ma2020learning"></d-cite>. In the last part, we apply this trick to efficiently learn low dimensional data representations.
 
@@ -204,7 +201,7 @@ $$
 
 where $$\mathbf{P}^{\mathbf{C}} = \exp((\mathbf{f}^\star \oplus \mathbf{g}^\star - \mathbf{C}) / \varepsilon)$$ as we have seen in the first part.
 
-Importantly, because we have $$\mathbf{P}^{\mathbf{C}} \in \Pi(\mathbf{a}, \mathbf{b})$$, we can notice that the term we added no longer depends on $$\mathbf{C}$$ when evaluted in $$(\mathbf{f}^\star,\mathbf{g}^\star)$$. Indeed
+Importantly, because we have $$\mathbf{P}^{\mathbf{C}} \in \Pi(\mathbf{a}, \mathbf{b})$$, we can notice that the term we added no longer depends on $$\mathbf{C}$$ when evaluated in $$(\mathbf{f}^\star,\mathbf{g}^\star)$$. Indeed
 
 $$
 \begin{align}
@@ -267,7 +264,7 @@ In this last part, we are going to see how inverse OT and the presented trick ca
 .
 We are given a dataset $$(\mathbf{x}_1, .., \mathbf{x}_n)$$ and the goal is to compute embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ such that each $$\mathbf{z}_i$$ is a low-dimensional representation of the input data point $$\mathbf{x}_i$$.
 
-To do so, we are going to look for a cost of the form $$d(\mathbf{z}_i, \mathbf{z}_j)$$ which solves inverse OT with an input $$\widehat{\mathbf{P}}$$ computed from $$(\mathbf{x}_1, .., \mathbf{x}_n)$$. To compute $$\widehat{\mathbf{P}}$$, one can simply solve the symmetric variant of entropic OT wich is exactly problem \eqref{eq:eot} with symmetric $$\mathbf{C}$$ $$=(d(\mathbf{x}_i, \mathbf{x}_j))_{ij}$$ and $$\mathbf{a}=\mathbf{b}$$. We pick $$\mathbf{a}=\mathbf{b}=\mathbf{1}$$ to give the same mass to every data point.
+To do so, we are going to look for a cost of the form $$d(\mathbf{z}_i, \mathbf{z}_j)$$ which solves inverse OT with an input $$\widehat{\mathbf{P}}$$ computed from $$(\mathbf{x}_1, .., \mathbf{x}_n)$$. To compute $$\widehat{\mathbf{P}}$$, one can simply solve the symmetric variant of entropic OT which is exactly problem \eqref{eq:eot} with symmetric $$\mathbf{C}$$ $$=(d(\mathbf{x}_i, \mathbf{x}_j))_{ij}$$ and $$\mathbf{a}=\mathbf{b}$$. We pick $$\mathbf{a}=\mathbf{b}=\mathbf{1}$$ to give the same mass to every data point.
 
 In symmetric entropic OT, we only have one dual variable $$\mathbf{f}$$ as the primal solution is given by $$\widehat{\mathbf{P}} = \exp((\mathbf{f}^\star \oplus \mathbf{f}^\star - \mathbf{C}) / \varepsilon)$$. Moreover $$\mathbf{f}^\star$$ can be computed by simply iterating <d-footnote> In the code we use the following well-conditioned variant : $f_i \leftarrow \frac{1}{2} (f_i-\varepsilon \log \sum_j e^{(f_j-C_{ij}) / \varepsilon})$. </d-footnote>.
 
@@ -279,7 +276,7 @@ $$
 
 :bulb: In symmetric entropic OT, each point spreads its mass to its closest neighbors thus capturing the geometry of the data. In this context, the regularizer $$\varepsilon$$ controls the scale of dependencies that is captured.
 
-Once we have computed $$\widehat{\mathbf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developped in <d-cite key="van2024snekhorn"></d-cite> <d-footnote> This work relies on a more elaborate version of symmetric entropic OT for computing $\widehat{\mathbf{P}}$ but the methodology to update the $(\mathbf{z}_1, .., \mathbf{z}_n)$ is the same as here. </d-footnote>.
+Once we have computed $$\widehat{\mathbf{P}}$$, the goal is to solve the inverse problem of finding the embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ that would generate a similar entropic OT plan in low-dimension. In other words, we want the geometry in the low-dimensional space to be similar to the one in input space. This method has strong connections with the t-SNE algorithm as developed in <d-cite key="van2024snekhorn"></d-cite> <d-footnote> This work relies on a more elaborate version of symmetric entropic OT for computing $\widehat{\mathbf{P}}$ but the methodology to update the $(\mathbf{z}_1, .., \mathbf{z}_n)$ is the same as here. </d-footnote>.
 
 To do so, we rely on the presented trick for inverse OT and therefore focus on solving
 
@@ -292,7 +289,7 @@ $$
 where $$\mathbf{C}_{\mathbf{Z}}$$ it the symmetric cost matrix with entries $$d(\mathbf{z}_i, \mathbf{z}_j)$$.
 
 We consider the common task of embedding the swiss roll (depicted below) from 3d to 2d.
-![](/assets/img/blog-invot/swiss_roll.svg){:style="display:block; margin-left:auto; margin-right:auto; width:50%;"}
+![A three-dimensional Swiss roll dataset colored by position along the manifold](/assets/img/blog-invot/swiss_roll.svg){:.research-figure .research-figure--narrow}
 
 In the experiments, we take the squared Euclidean distance for $$d$$, $$\varepsilon=10$$ for the entropic regularizer and independent $$\cal{N}(0,1)$$ variables to initialize the embedding coordinates. The code is provided in the box below.
 
@@ -494,10 +491,10 @@ plt.show()
 {% enddetails %}
 
 First, as shown in the figure below, we can verify that we obtain exactly the same embeddings $$(\mathbf{z}_1, .., \mathbf{z}_n)$$ using unrolling and the Monge gap trick presented in this blog.
-![](/assets/img/blog-invot/swiss_roll_inverse_OT.svg){:style="display:block; margin-left:auto; margin-right:auto; width:100%;"}
+![Two-dimensional Swiss roll embeddings produced by unrolling and by the Monge-gap objective](/assets/img/blog-invot/swiss_roll_inverse_OT.svg){:.research-figure}
 
 Regarding run-time, the Monge gap approach is faster than unrolling as we can see on the following plot. Hence the trick presented in this blog has a great practical interest, especially for large-scale applications.
-![](/assets/img/blog-invot/timings.svg){:style="display:block; margin-left:auto; margin-right:auto; width:50%;"}
+![Runtime comparison showing the scaling of unrolling and Monge-gap optimization](/assets/img/blog-invot/timings.svg){:.research-figure .research-figure--narrow}
 
 :bulb: Inverse OT is also useful for contrastive learning as shown in <d-cite key="pmlr-v202-shi23j"></d-cite>. In contrastive learning, one constructs augmented views $$(\mathbf{y}_1, .., \mathbf{y}_r)$$ of input data points $$(\mathbf{x}_1, .., \mathbf{x}_n)$$. The ground truth coupling $$\widehat{\mathbf{P}}$$ is taken such that $$\widehat{P}_{ij}=1$$ if $$\mathbf{y}_j$$ is an augmented view of $$\mathbf{x}_i$$ and $$0$$ otherwise. Then, inverse OT can be applied to compute latent representations
 
@@ -507,7 +504,7 @@ $$
 \end{align}
 $$
 
-where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\mathbf{x}_1, .., \mathbf{x}_n)$ as source points and the $(\mathbf{y}_1, .., \mathbf{y}_r)$ as target points while symmetric inverse OT treats each point indifferently. Both approach use $\widehat{\mathbf{P}}$ as target coupling.</d-footnote>. Interestingly, the trick presented in this blog can be applied in this context thus alleviating the need to perform backpropagation through the Sinkhorn iterations.
+where $$\phi_{\theta}$$ is a neural network. Note that both directed and symmetric inverse OT can be considered <d-footnote> Indeed, directed inverse OT corresponds to treating the $(\mathbf{x}_1, .., \mathbf{x}_n)$ as source points and the $(\mathbf{y}_1, .., \mathbf{y}_r)$ as target points while symmetric inverse OT treats each point indifferently. Both approaches use $\widehat{\mathbf{P}}$ as target coupling.</d-footnote>. Interestingly, the trick presented in this blog can be applied in this context thus alleviating the need to perform backpropagation through the Sinkhorn iterations.
 
 :pencil2: Feel free to contact me for any question or remark on this blog !
 
