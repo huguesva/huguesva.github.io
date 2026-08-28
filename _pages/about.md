@@ -13,11 +13,6 @@ profile:
 selected_papers: true
 social: true
 
-announcements:
-  enabled: true
-  scrollable: false
-  limit: 3
-
 latest_posts:
   enabled: true
   scrollable: false
