@@ -77,7 +77,7 @@ pagination:
 <div class="float-right">
 <i class="fa-solid fa-thumbtack fa-xs"></i>
 </div>
-<h3 class="card-title text-lowercase">{{ post.title }}</h3>
+<h3 class="card-title">{{ post.title }}</h3>
 <p class="card-text">{{ post.description }}</p>
 
                     {% if post.external_source == blank %}
@@ -124,6 +124,7 @@ pagination:
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
 
+    {% unless post.featured %}
     <li>
 
 {% if post.thumbnail %}
@@ -188,6 +189,7 @@ pagination:
 </div>
 {% endif %}
     </li>
+    {% endunless %}
 
     {% endfor %}
 

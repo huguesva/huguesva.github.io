@@ -7,6 +7,7 @@ subtitle: Postdoctoral Fellow at Genentech · South San Francisco, CA
 profile:
   align: right
   image: hugues-van-assel.jpeg
+  image_alt: Portrait of Hugues Van Assel
   image_circular: true
   more_info:
 
