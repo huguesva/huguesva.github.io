@@ -2,7 +2,6 @@
 layout: page
 permalink: /talks/
 title: talks
-description: Invited talks, conference presentations, and seminars on representation learning, optimal transport, and dimensionality reduction.
 nav: true
 nav_order: 2
 ---
