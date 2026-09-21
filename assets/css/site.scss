@@ -1,6 +1,22 @@
 ---
 ---
 
+// Blog bylines show authors and dates without an affiliation column.
+.distill d-byline .byline {
+  grid-template-columns: 1fr 1fr;
+}
+
+.distill d-byline .authors-affiliations {
+  grid-column-end: span 1;
+  grid-template-columns: 1fr;
+  margin-bottom: 0;
+}
+
+.distill d-byline .authors-affiliations > h3:nth-of-type(2),
+.distill d-byline .affiliation {
+  display: none;
+}
+
 .research-notes-header {
   padding-top: 1.25rem;
   padding-bottom: 2rem;

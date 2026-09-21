@@ -10,8 +10,6 @@ citation: true
 authors:
   - name: Hugues Van Assel
     url: "https://huguesva.github.io/"
-    affiliations:
-      name: Ecole Normale Superieure de Lyon
 
 bibliography: 2024-02-25-distill.bib
 ---

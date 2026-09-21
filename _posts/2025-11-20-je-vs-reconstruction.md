@@ -10,8 +10,6 @@ citation: true
 authors:
   - name: Hugues Van Assel
     url: "https://huguesva.github.io/"
-    affiliations:
-      name: Genentech & Brown University
 
 bibliography: 2025-11-20-je-vs-reconstruction.bib
 ---
