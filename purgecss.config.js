@@ -4,6 +4,12 @@ module.exports = {
   output: "_site/assets/css/",
   skippedContentGlobs: ["_site/assets/**/*.html"],
   safelist: [
+    // World-models post panels and figure wrappers.
+    "model-objective",
+    /^ranking-/,
+    /^bias-summary/,
+    /^selection-score/,
+    "mode-summary",
     "collapse",
     "collapsing",
     "show",
