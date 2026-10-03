@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Feature Selection in World Models: A Spectral View"
+description: "Which features do world-model objectives preserve for planning, and which do they discard? A first-principles comparison of five objectives in a shared linear-Gaussian setting."
 date: 2026-10-02
 published: true
 tags: ["SSL","World Model"]
