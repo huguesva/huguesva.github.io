@@ -192,6 +192,12 @@
   border-left-color: #1677c8;
 }
 
+// Post descriptions drive the blog index blurb and the meta description,
+// but are not wanted as a visible subtitle under the post title.
+.distill d-title > p {
+  display: none;
+}
+
 // Keep long display equations swipeable on small screens without showing a
 // permanent browser scrollbar beneath otherwise clean mathematical notation.
 d-article mjx-container[jax="CHTML"][display="true"] {

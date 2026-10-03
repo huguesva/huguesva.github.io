@@ -1,3 +1,158 @@
+/* Structural layout for the world-models post.
+   Ported from the drafting branch's site.scss so the post is self-contained:
+   this stylesheet is linked only from this post, so the rules below
+   (including the byline tweak) do not affect any other page. */
+
+/* Blog bylines show authors and dates without an affiliation column. */
+.distill d-byline .byline {
+  grid-template-columns: 1fr 1fr;
+}
+
+.distill d-byline .authors-affiliations {
+  grid-column-end: span 1;
+  grid-template-columns: 1fr;
+  margin-bottom: 0;
+}
+
+.distill d-byline .authors-affiliations > h3:nth-of-type(2),
+.distill d-byline .affiliation {
+  display: none;
+}
+
+/* Give each method a recognizable objective panel without styling its proofs. */
+.model-objective {
+  grid-column: text;
+  justify-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  padding: 0.5rem clamp(0.75rem, 2vw, 1.5rem);
+  border: 1px solid var(--global-theme-color);
+  border-color: color-mix(in srgb, var(--global-theme-color) 35%, var(--global-divider-color));
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.6rem;
+  background: var(--global-bg-color);
+  background: color-mix(in srgb, var(--global-theme-color) 4%, var(--global-bg-color));
+}
+
+/* Ranking maps: a wider paired figure, stacked at narrow viewport widths. */
+.ranking-comparison {
+  grid-column: text;
+  justify-self: center;
+  box-sizing: border-box;
+  width: min(960px, calc(100vw - 48px));
+  max-width: none;
+  margin: 1.5rem 0;
+}
+
+.ranking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.ranking-card {
+  --ranking-accent: #2563eb;
+  margin: 0;
+  min-width: 0;
+  padding: 1.4rem 1rem 1.1rem;
+  border: 1px solid var(--global-divider-color);
+  border-top: 3px solid var(--ranking-accent);
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #202b3b;
+}
+
+.ranking-card--jepa {
+  --ranking-accent: #a64f19;
+}
+
+.ranking-card--unified {
+  border-top-width: 1px;
+  border-top-color: var(--global-divider-color);
+}
+
+.ranking-card h3 {
+  margin: 0 0 0.3rem;
+  color: var(--ranking-accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.ranking-card .ranking-takeaway {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.ranking-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ranking-card .ranking-img--dark {
+  display: none;
+}
+
+.ranking-card figcaption {
+  margin: 0.75rem 0 0;
+  color: #59687c;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.ranking-comparison .ranking-key {
+  margin: 1rem 0 0;
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+html[data-theme="dark"] .ranking-card {
+  --ranking-accent: #8bb4ff;
+  background: #20262e;
+  color: #edf1f7;
+}
+
+html[data-theme="dark"] .ranking-card--jepa {
+  --ranking-accent: #ffb879;
+}
+
+html[data-theme="dark"] .ranking-card .ranking-img--light {
+  display: none;
+}
+
+html[data-theme="dark"] .ranking-card .ranking-img--dark {
+  display: block;
+}
+
+html[data-theme="dark"] .ranking-card figcaption {
+  color: #b5c0cf;
+}
+
+@media (max-width: 1100px) {
+  .ranking-comparison {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ranking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .ranking-card {
+    padding: 1.1rem 0.65rem 0.9rem;
+  }
+}
+
+/* ---- theming overrides ---- */
+
 .model-objective,
 .mode-summary,
 .selection-score,
