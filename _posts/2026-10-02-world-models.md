@@ -97,9 +97,15 @@ We start our exploration with the seminal work of Ha and Schmidhuber<d-cite key=
 
 We use a deterministic approximation for variational methods: we replace sampled latents with their encoder means, fix the covariance terms, and retain only the mean-dependent parts of the loss. This results in squared reconstruction and prediction errors, which are sufficient to illustrate the competition between features studied in this blog. The dropdowns provide the corresponding probabilistic objectives and explain the terms omitted by our approximation.
 
+Throughout the five simplified objectives, $$\mathbf E$$ denotes the encoder parameters, $$\mathbf D$$ the decoder parameters, and $$\mathbf P$$ the action-conditioned predictor parameters. We optimize the parameters listed under each minimum; the data distribution, latent capacity, loss weights, and covariance scales are held fixed. The linear mode-selection results additionally impose the normalization and model restrictions stated in the proofs.
+
 To understand which features the VAE stage retains, let $$\mathbf X_t\in\mathbb R^d$$ be a centered observation with covariance $$\boldsymbol\Sigma_{\mathrm X}\succ0$$. The encoder maps $$\mathbf X_t$$ to its latent representation $$\mathbf Z_t=f_{\mathbf E}^{\mathrm{enc}}(\mathbf X_t)$$, while the decoder $$f_{\mathbf D}^{\mathrm{dec}}(\mathbf Z_t)$$ reconstructs the original observation. With decoder variance $$\sigma_{\mathrm{dec}}^2>0$$ and regularization weight $$\beta>0$$, the simplified mean objective is
 
 <div class="model-objective" markdown="1">
+
+$$
+\min_{\mathbf E,\mathbf D}\, \mathcal L_{\mathrm{VAE}}(\mathbf E,\mathbf D).
+$$
 
 $$
 \begin{aligned}
@@ -140,6 +146,10 @@ The encoder produces $$\mathbf Z_t=f_{\mathbf E}^{\mathrm{enc}}(\mathbf X_t)$$. 
 <div class="model-objective" markdown="1">
 
 $$
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{ObsPred}}(\mathbf E,\mathbf D,\mathbf P).
+$$
+
+$$
 \begin{aligned}
 \widehat{\mathbf Z}_{t+1}
 &=f_{\mathbf P}^{\mathrm{pred}}(\mathbf Z_t,\mathbf U_t),\\
@@ -175,6 +185,10 @@ The contrast with the VAE is immediate: modes are now ranked by **predictable va
 Embed to Control (E2C)<d-cite key="watter2015e2c"></d-cite> brings the first two ideas together. The representation should reconstruct the current observation, predict the next one, and make the predicted latent state agree with the encoding of that next observation. This last term ties the learned dynamics directly to the representation produced by the encoder.
 
 <div class="model-objective" markdown="1">
+
+$$
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{E2C}}(\mathbf E,\mathbf D,\mathbf P).
+$$
 
 $$
 \begin{aligned}
@@ -218,6 +232,10 @@ Dreamer<d-cite key="hafner2020dreamer"></d-cite> also combines reconstruction an
 <div class="model-objective" markdown="1">
 
 $$
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{Dreamer}}(\mathbf E,\mathbf D,\mathbf P).
+$$
+
+$$
 \begin{aligned}
 \mathcal L_{\mathrm{Dreamer}}
 &=\frac{1}{2\sigma_{\mathrm{dec}}^2}
@@ -259,6 +277,10 @@ JEPA<d-cite key="lecun2022path"></d-cite> removes the decoder entirely. Instead 
 Prediction alone does not determine which informative features should be represented: a constant representation would also be perfectly predictable. We therefore pair the prediction objective with a covariance regularizer that keeps the representation non-collapsed and decorrelated:
 
 <div class="model-objective" markdown="1">
+
+$$
+\min_{\mathbf E,\mathbf P}\, \mathcal L_{\mathrm{JEPA}}(\mathbf E,\mathbf P).
+$$
 
 $$
 \begin{aligned}
