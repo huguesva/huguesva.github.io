@@ -1,0 +1,176 @@
+@page {
+  size: A4;
+  margin: 17mm 16mm 18mm;
+}
+html,
+body {
+  background: white !important;
+  color: #111 !important;
+  font-size: 10pt !important;
+}
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+header,
+footer,
+nav,
+d-contents,
+.copy,
+.copy-btn,
+.copy-code-button {
+  display: none !important;
+}
+.post,
+.distill,
+d-title,
+d-byline,
+d-article,
+d-appendix,
+d-citation-list {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+d-title h1 {
+  font-size: 26pt !important;
+  line-height: 1.12 !important;
+  margin: 0 0 12pt !important;
+}
+d-title > p {
+  display: none;
+}
+d-byline {
+  border: 0 !important;
+  margin-bottom: 16pt !important;
+}
+d-byline p {
+  margin: 4pt 0 !important;
+  font-size: 10pt !important;
+}
+d-byline .pdf-author {
+  font-size: 17pt !important;
+}
+d-article,
+d-appendix {
+  font-size: 10pt !important;
+  line-height: 1.45 !important;
+}
+d-article p,
+d-article li,
+d-appendix li,
+d-article td,
+d-article th {
+  font-size: 10pt !important;
+  line-height: 1.45 !important;
+}
+d-article > *,
+d-appendix > * {
+  max-width: 100% !important;
+}
+h2 {
+  font-size: 17pt !important;
+  margin: 20pt 0 8pt !important;
+}
+h3 {
+  font-size: 13pt !important;
+  margin: 16pt 0 6pt !important;
+}
+h2,
+h3,
+p {
+  orphans: 3;
+  widows: 3;
+}
+.model-objective,
+.selection-score,
+.mode-.ranking-comparison {
+  width: 100% !important;
+  margin: 12pt 0 !important;
+}
+figure {
+  break-inside: avoid;
+  padding: 8pt !important;
+  margin: 0 !important;
+}
+figure img {
+  display: block;
+  max-height: 160mm;
+  object-fit: contain;
+  width: 100% !important;
+  height: auto !important;
+}
+.ranking-img--dark {
+  display: none !important;
+}
+.ranking-img--light {
+  display: block !important;
+}
+figcaption {
+  font-size: 8pt !important;
+  line-height: 1.35 !important;
+}
+a {
+  color: #174d83 !important;
+  text-decoration: none !important;
+}
+pre {
+  white-space: pre-wrap !important;
+  font-size: 8pt !important;
+  break-inside: avoid;
+}
+pre code {
+  font-size: 8pt !important;
+}
+d-citation-list {
+  margin-top: 20pt !important;
+}
+d-citation-list li {
+  margin-bottom: 6pt !important;
+  overflow-wrap: anywhere;
+}
+.pdf-version {
+  font-size: 9pt !important;
+  color: #555;
+}
+mjx-container[display="true"] {
+  overflow: visible !important;
+  font-size: 100% !important;
+  break-inside: avoid;
+}
+@page {
+  @bottom-right {
+    content: none;
+  }
+}
+d-citation-list ol {
+  box-sizing: border-box !important;
+  padding-left: 22pt !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+d-citation-list,
+d-citation-list li,
+d-citation-list span {
+  color: #111 !important;
+}
+.pdf-appendix {
+  break-before: page;
+  background: white !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+.pdf-appendix > section {
+  margin: 18pt 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: white !important;
+}
+.pdf-crossref {
+  font-size: 9pt !important;
+  margin: 4pt 0 8pt !important;
+}

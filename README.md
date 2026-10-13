@@ -58,3 +58,28 @@ Prefer configuration and `assets/css/site.scss` over copying plugin-owned layout
 ## Licensing
 
 The website code is available under the [MIT License](LICENSE). Unless noted otherwise, personal writing, publication material, images, slides, and posters remain copyright Hugues Van Assel and their respective co-authors.
+
+## Citable research notes
+
+The world-models article has build-time Google Scholar metadata, a downloadable
+BibTeX entry, and a PDF alongside its canonical HTML URL. The `scholar: true`
+front matter opts a post into `_plugins/scholar_metadata.rb`; `citation_pdf`
+identifies its PDF. This does not guarantee Google Scholar indexing.
+
+To regenerate the world-models PDF after editing the post or its included proofs:
+
+```sh
+JEKYLL_ENV=production bundle exec jekyll build
+node scripts/export-world-models-pdf.mjs
+JEKYLL_ENV=production bundle exec jekyll build
+```
+
+The export requires Node.js 24+ and Google Chrome on macOS, or Chromium on Linux.
+Set `CHROME_BIN` to override the browser executable. It starts a temporary local
+server and browser profile, moves all proofs and loss approximations into plain\nappendices with internal links, waits for equations and references,
+and freezes animated figures at their first frame. The PDF links to the online
+animations. Update the PDF version date in the export script when revising the note;
+keep the original publication date consistent across the post and citation.
+Commit the regenerated PDF with the content change. The second build copies that
+PDF into `_site/`. No external repository deposit or Scholar profile entry is
+created by this workflow.

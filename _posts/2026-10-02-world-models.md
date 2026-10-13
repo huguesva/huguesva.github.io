@@ -6,6 +6,8 @@ date: 2026-10-02
 published: true
 tags: ["SSL","World Model"]
 citation: false
+scholar: true
+citation_pdf: /blog/2026/world-models/world-models.pdf
 related_posts: false
 bibliography: 2026-10-02-world-models.bib
 
@@ -16,6 +18,8 @@ authors:
 
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/world-model-blog.css' | relative_url }}">
+
+[Download PDF]({{ page.citation_pdf | relative_url }}) · [Cite this post](#cite-this-post)
 
 *Which features do world-model objectives preserve for planning, and which do they discard?*
 
@@ -395,14 +399,17 @@ More generally, a predictable feature may be persistent, action-driven, or simpl
 
 If you find this post useful, please consider citing it as:
 
-Van Assel, Hugues (2026). *Feature Selection in World Models: A Spectral View*. Blog post.
+Van Assel, Hugues (2026). *Feature Selection in World Models: A Spectral View*. October 2. [https://huguesva.github.io/blog/2026/world-models/](https://huguesva.github.io/blog/2026/world-models/).
 
 ```bibtex
 @misc{vanassel2026spectral,
   author = {Van Assel, Hugues},
   title  = {Feature Selection in World Models: A Spectral View},
   year   = {2026},
+  month  = oct,
   url    = {https://huguesva.github.io/blog/2026/world-models/},
-  note   = {Blog post}
+  note   = {Blog post; research-note PDF available at the same URL}
 }
 ```
+
+[Download BibTeX]({{ '/blog/2026/world-models/citation.bib' | relative_url }})
