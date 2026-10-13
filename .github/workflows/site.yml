@@ -51,6 +51,9 @@ jobs:
       - name: Build production site
         run: bundle exec jekyll build --trace
 
+      - name: Check research-note citation metadata and downloads
+        run: bundle exec ruby scripts/check-research-note.rb
+
       - name: Remove unused CSS
         run: npm run css:purge
 

@@ -8,3 +8,5 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-added-large-files
+        # The citation-artifact check enforces Scholar's 5 MB limit for this PDF.
+        exclude: '^blog/2026/world-models/world-models\.pdf$'
