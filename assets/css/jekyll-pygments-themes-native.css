@@ -104,7 +104,10 @@
 .highlight .nt {
   color: #6ab825;
   font-weight: bold;
-} /* Name.Tag */ /* Name.Variable */
+} /* Name.Tag */
+.highlight .nv {
+  color: #40ffff;
+} /* Name.Variable */
 .highlight .ow {
   color: #6ab825;
   font-weight: bold;
