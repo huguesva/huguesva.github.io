@@ -103,10 +103,8 @@ To understand which features the VAE stage retains, let $$\mathbf X_t\in\mathbb 
 
 <div class="model-objective" markdown="1">
 
-**Optimize:** encoder $$\mathbf E$$ and decoder $$\mathbf D$$. The predictor is trained only afterward, with the encoder frozen.
-
 $$
-\min_{\mathbf E,\mathbf D} \mathcal L_{\mathrm{VAE}}(\mathbf E,\mathbf D).
+\min_{\mathbf E,\mathbf D}\, \mathcal L_{\mathrm{VAE}}(\mathbf E,\mathbf D).
 $$
 
 $$
@@ -147,10 +145,8 @@ The encoder produces $$\mathbf Z_t=f_{\mathbf E}^{\mathrm{enc}}(\mathbf X_t)$$. 
 
 <div class="model-objective" markdown="1">
 
-**Optimize jointly:** encoder $$\mathbf E$$, decoder $$\mathbf D$$, and predictor $$\mathbf P$$.
-
 $$
-\min_{\mathbf E,\mathbf D,\mathbf P} \mathcal L_{\mathrm{ObsPred}}(\mathbf E,\mathbf D,\mathbf P).
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{ObsPred}}(\mathbf E,\mathbf D,\mathbf P).
 $$
 
 $$
@@ -190,10 +186,8 @@ Embed to Control (E2C)<d-cite key="watter2015e2c"></d-cite> brings the first two
 
 <div class="model-objective" markdown="1">
 
-**Optimize jointly:** encoder $$\mathbf E$$, shared decoder $$\mathbf D$$, and predictor $$\mathbf P$$. For the mode-selection derivation below, we restrict the predictor to the conditional mean of the next encoding.
-
 $$
-\min_{\mathbf E,\mathbf D,\mathbf P} \mathcal L_{\mathrm{E2C}}(\mathbf E,\mathbf D,\mathbf P).
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{E2C}}(\mathbf E,\mathbf D,\mathbf P).
 $$
 
 $$
@@ -237,10 +231,8 @@ Dreamer<d-cite key="hafner2020dreamer"></d-cite> also combines reconstruction an
 
 <div class="model-objective" markdown="1">
 
-**Optimize jointly:** encoder $$\mathbf E$$, decoder $$\mathbf D$$, and predictor $$\mathbf P$$ in this simplified one-step model.
-
 $$
-\min_{\mathbf E,\mathbf D,\mathbf P} \mathcal L_{\mathrm{Dreamer}}(\mathbf E,\mathbf D,\mathbf P).
+\min_{\mathbf E,\mathbf D,\mathbf P}\, \mathcal L_{\mathrm{Dreamer}}(\mathbf E,\mathbf D,\mathbf P).
 $$
 
 $$
@@ -286,10 +278,8 @@ Prediction alone does not determine which informative features should be represe
 
 <div class="model-objective" markdown="1">
 
-**Optimize jointly:** encoder $$\mathbf E$$ and predictor $$\mathbf P$$. There is no decoder.
-
 $$
-\min_{\mathbf E,\mathbf P} \mathcal L_{\mathrm{JEPA}}(\mathbf E,\mathbf P).
+\min_{\mathbf E,\mathbf P}\, \mathcal L_{\mathrm{JEPA}}(\mathbf E,\mathbf P).
 $$
 
 $$
